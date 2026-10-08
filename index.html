@@ -352,61 +352,124 @@
     <!-- ============================================== -->
     <!-- TAB 3: PHẦN III: TỰ LUẬN (CHUYÊN ĐỀ & GIẢI CHI TIẾT) -->
     <!-- ============================================== -->
+    <!-- ============================================== -->
+    <!-- TAB 3: PHẦN III: TỰ LUẬN DỄ HIỂU (CHUYÊN SÂU)   -->
+    <!-- ============================================== -->
     <section id="tab-essay" class="tab-pane">
-      <div class="essay-header-intro">
-        <div class="intro-left">
-          <h2>Chuyên Đề Tự Luận Chuyên Sâu</h2>
-          <p class="subtitle">Đề cương phân tích chi tiết 5 câu hỏi tự luận lớn chuẩn giáo trình Bộ GD&ĐT, bao gồm dàn ý tư duy, luận điểm cốt lõi, dẫn chứng thực tiễn Việt Nam và liên hệ trách nhiệm sinh viên.</p>
+      <!-- 1. Header Hero with Study Progress -->
+      <div class="essay-header-hero">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="hero-badge-dot"></span>
+            <span>PHẦN III: 5 CHUYÊN ĐỀ TỰ LUẬN TRỌNG TÂM</span>
+          </div>
+          <h2>Học Tự Luận Theo Sơ Đồ Tư Duy & Dàn Ý Thông Minh</h2>
+          <p class="subtitle">Thiết kế tối ưu cho sinh viên ôn thi: Nắm trọn dàn ý trong 30 giây, số liệu thực tiễn đắt giá, lời giải mẫu chuẩn văn phong học thuật và chế độ tự nhẩm kiểm tra Active Recall.</p>
         </div>
-        <div class="intro-stats-badge">
-          <span class="badge-number">5</span>
-          <span class="badge-text">Câu Tự Luận Trọng Tâm</span>
+
+        <div class="hero-status-card">
+          <div class="status-metric">
+            <span class="status-num" id="essay-mastered-count">0/5</span>
+            <span class="status-lbl">Câu đã thuộc</span>
+          </div>
+          <div class="status-progress-track">
+            <div class="status-progress-bar" id="essay-progress-bar" style="width: 0%;"></div>
+          </div>
         </div>
       </div>
 
-      <div class="essay-toolbar">
-        <div class="search-input-box">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="search-essay-input" placeholder="Tìm câu hỏi, từ khóa tự luận (quá độ, công nhân, dân tộc, gia đình, sinh viên...)" autocomplete="off">
-          <button id="btn-clear-essay-search" class="btn-clear hidden">✕</button>
+      <!-- 2. Question Stepper Tabs (5 Large Interactive Buttons) -->
+      <div class="essay-stepper-wrapper">
+        <div class="essay-stepper-header">
+          <span class="stepper-title">CHỌN CÂU HỎI ÔN TẬP:</span>
+          <div class="stepper-actions">
+            <button id="btn-essay-view-all" class="btn-subtle-sm" title="Chuyển đổi giữa xem từng câu và xem toàn bộ">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              <span id="btn-essay-view-mode-text">Xem toàn bộ 5 câu</span>
+            </button>
+          </div>
+        </div>
+        <div class="essay-stepper-nav" id="essay-stepper-nav">
+          <!-- Rendered via JS: 5 large interactive buttons with icons and titles -->
+        </div>
+      </div>
+
+      <!-- 3. Study Mode Switcher & Tools Bar -->
+      <div class="essay-mode-toolbar" id="essay-mode-toolbar">
+        <div class="study-mode-pills">
+          <button class="mode-pill-btn active" data-mode="mindmap" id="mode-essay-mindmap" title="Xem dạng sơ đồ khối và tóm tắt nhanh nhất">
+            <span class="pill-icon">⚡</span>
+            <span class="pill-title">Dàn ý & Sơ đồ tư duy</span>
+            <span class="pill-tag">Dễ nhớ</span>
+          </button>
+          <button class="mode-pill-btn" data-mode="full" id="mode-essay-full" title="Xem bài giải chi tiết đầy đủ câu từ chuẩn giáo trình">
+            <span class="pill-icon">📖</span>
+            <span class="pill-title">Bài giải mẫu chi tiết</span>
+          </button>
+          <button class="mode-pill-btn" data-mode="recall" id="mode-essay-recall" title="Che đáp án để tự nhẩm kiểm tra trí nhớ">
+            <span class="pill-icon">🧠</span>
+            <span class="pill-title">Tự nhẩm & Kiểm tra</span>
+            <span class="pill-tag pill-tag-amber">Active Recall</span>
+          </button>
         </div>
 
-        <div class="essay-toolbar-actions">
-          <div class="filter-dropdown-box">
-            <select id="filter-essay-topic" class="custom-select">
-              <option value="all">Tất cả chuyên đề (5 câu)</option>
-              <option value="Thời kỳ quá độ">1. Thời kỳ quá độ & Đổi mới</option>
-              <option value="Giai cấp công nhân">2. Sứ mệnh giai cấp công nhân</option>
-              <option value="Quốc gia - Dân tộc">3. Quốc gia - Dân tộc & Đường lối Đảng</option>
-              <option value="Đại đoàn kết">4. Mác-Lênin & Đại đoàn kết dân tộc</option>
-              <option value="Gia đình">5. Gia đình & Tái sản xuất con người</option>
-            </select>
+        <div class="study-tools-group">
+          <!-- Mastered toggle button -->
+          <button id="btn-toggle-essay-mastered" class="tool-btn" title="Đánh dấu đã thuộc câu này">
+            <span class="tool-icon" id="mastered-check-icon">✓</span>
+            <span id="mastered-btn-text">Đánh dấu đã thuộc</span>
+          </button>
+
+          <!-- Toggle Highlight keywords -->
+          <button id="btn-toggle-essay-highlight" class="tool-btn active" title="Bật/Tắt tô màu từ khóa quan trọng">
+            <span class="tool-icon">🖍️</span>
+            <span>Tô màu từ khóa</span>
+          </button>
+
+          <!-- Font size adjuster -->
+          <div class="font-size-adjuster" title="Điều chỉnh cỡ chữ đọc bài">
+            <button id="btn-font-decrease" class="btn-font-step" title="Giảm cỡ chữ">A-</button>
+            <button id="btn-font-increase" class="btn-font-step" title="Tăng cỡ chữ">A+</button>
           </div>
 
-          <button id="btn-essay-expand-all" class="btn-secondary" title="Mở rộng toàn bộ bài giải">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 11 12 6 17 11"/><polyline points="7 18 12 13 17 18"/></svg>
-            Mở rộng hết
+          <!-- Copy Button -->
+          <button id="btn-current-essay-copy" class="tool-btn" title="Sao chép bài giải câu này">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Sao chép</span>
           </button>
 
-          <button id="btn-essay-collapse-all" class="btn-secondary" title="Thu gọn toàn bộ bài giải">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 6 12 11 17 6"/><polyline points="7 13 12 18 17 13"/></svg>
-            Thu gọn
-          </button>
-
-          <button id="btn-essay-print" class="btn-primary" title="In toàn bộ đề cương hoặc lưu PDF">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-            In / Xuất PDF
+          <!-- Print / PDF -->
+          <button id="btn-essay-print-view" class="tool-btn btn-print-accent" title="In hoặc xuất PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            <span>In / PDF</span>
           </button>
         </div>
       </div>
 
-      <!-- Quick Topics Jump Navigation -->
-      <div class="essay-quick-nav" id="essay-quick-nav">
-        <!-- Rendered via JS -->
+      <!-- 4. Main Focus Container: Single Question Dynamic View -->
+      <div class="essay-focus-display" id="essay-focus-display">
+        <!-- Rendered via JS: Question banner, Takeaway box, Mindmap/Full/Recall content -->
       </div>
 
-      <!-- Essay Cards List -->
-      <div class="essay-list-container" id="essay-list-container">
+      <!-- 5. Bottom Navigation Bar (Prev / Next Question) -->
+      <div class="essay-bottom-navigation" id="essay-bottom-navigation">
+        <button id="btn-essay-prev" class="btn-nav-step">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          <span id="btn-essay-prev-text">Câu trước</span>
+        </button>
+
+        <div class="step-indicator-text" id="step-indicator-text">
+          Câu 1 / 5
+        </div>
+
+        <button id="btn-essay-next" class="btn-nav-step btn-nav-primary">
+          <span id="btn-essay-next-text">Câu tiếp theo</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+
+      <!-- 6. View All Container (Shown only when in 'view all' mode) -->
+      <div class="essay-view-all-container hidden" id="essay-view-all-container">
         <!-- Rendered via JS -->
       </div>
     </section>

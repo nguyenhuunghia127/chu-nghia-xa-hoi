@@ -12,6 +12,9 @@
   const STORAGE_KEY_FC_MASTERED = 'cnxh_fc_mastered';
   const STORAGE_KEY_FC_REVIEW = 'cnxh_fc_review';
   const STORAGE_KEY_THEME = 'cnxh_theme';
+  const STORAGE_KEY_ESSAY_MASTERED = 'cnxh_essay_mastered';
+  const STORAGE_KEY_ESSAY_FONT = 'cnxh_essay_font_size';
+  const STORAGE_KEY_ESSAY_HIGHLIGHT = 'cnxh_essay_highlight';
 
   let rawMcqList = [...QUIZ_DATA.mcq];
   let rawSaList = [...QUIZ_DATA.shortAnswer];
@@ -50,9 +53,14 @@
 
     // Essay state
     essay: {
-      searchQuery: '',
-      filterTopic: 'all',
-      collapsedMap: {}
+      currentIndex: 0,
+      mode: 'mindmap', // 'mindmap' | 'full' | 'recall'
+      viewAll: false,
+      fontSize: localStorage.getItem(STORAGE_KEY_ESSAY_FONT) || 'font-size-md',
+      highlight: JSON.parse(localStorage.getItem(STORAGE_KEY_ESSAY_HIGHLIGHT) ?? 'true'),
+      mastered: new Set(JSON.parse(localStorage.getItem(STORAGE_KEY_ESSAY_MASTERED) || '[]')),
+      revealedHints: new Set(),
+      collapsedSections: {}
     }
   };
 
@@ -189,16 +197,30 @@
     btnModalReview: document.getElementById('btn-modal-review'),
     btnModalClose: document.getElementById('btn-modal-close'),
 
-    // Essay
-    searchEssayInput: document.getElementById('search-essay-input'),
-    btnClearEssaySearch: document.getElementById('btn-clear-essay-search'),
-    filterEssayTopic: document.getElementById('filter-essay-topic'),
-    btnEssayExpandAll: document.getElementById('btn-essay-expand-all'),
-    btnEssayCollapseAll: document.getElementById('btn-essay-collapse-all'),
-    btnEssayPrint: document.getElementById('btn-essay-print'),
-    essayQuickNav: document.getElementById('essay-quick-nav'),
-    essayListContainer: document.getElementById('essay-list-container'),
-    essayCountBadge: document.getElementById('essay-count-badge'),
+    // Essay DOM
+    essayMasteredCount: document.getElementById('essay-mastered-count'),
+    essayProgressBar: document.getElementById('essay-progress-bar'),
+    btnEssayViewAll: document.getElementById('btn-essay-view-all'),
+    btnEssayViewModeText: document.getElementById('btn-essay-view-mode-text'),
+    essayStepperNav: document.getElementById('essay-stepper-nav'),
+    essayModeToolbar: document.getElementById('essay-mode-toolbar'),
+    modeEssayMindmap: document.getElementById('mode-essay-mindmap'),
+    modeEssayFull: document.getElementById('mode-essay-full'),
+    modeEssayRecall: document.getElementById('mode-essay-recall'),
+    btnToggleEssayMastered: document.getElementById('btn-toggle-essay-mastered'),
+    masteredBtnText: document.getElementById('mastered-btn-text'),
+    masteredCheckIcon: document.getElementById('mastered-check-icon'),
+    btnToggleEssayHighlight: document.getElementById('btn-toggle-essay-highlight'),
+    btnFontDecrease: document.getElementById('btn-font-decrease'),
+    btnFontIncrease: document.getElementById('btn-font-increase'),
+    btnCurrentEssayCopy: document.getElementById('btn-current-essay-copy'),
+    btnEssayPrintView: document.getElementById('btn-essay-print-view'),
+    essayFocusDisplay: document.getElementById('essay-focus-display'),
+    essayBottomNav: document.getElementById('essay-bottom-navigation'),
+    btnEssayPrev: document.getElementById('btn-essay-prev'),
+    btnEssayNext: document.getElementById('btn-essay-next'),
+    stepIndicatorText: document.getElementById('step-indicator-text'),
+    essayViewAllContainer: document.getElementById('essay-view-all-container'),
     toastNotification: document.getElementById('toast-notification'),
     toastMessage: document.getElementById('toast-message'),
 
@@ -238,6 +260,15 @@
   function saveFcProgress() {
     localStorage.setItem(STORAGE_KEY_FC_MASTERED, JSON.stringify(Array.from(state.sa.mastered)));
     localStorage.setItem(STORAGE_KEY_FC_REVIEW, JSON.stringify(Array.from(state.sa.review)));
+  }
+
+  function saveEssayMastered() {
+    localStorage.setItem(STORAGE_KEY_ESSAY_MASTERED, JSON.stringify(Array.from(state.essay.mastered)));
+  }
+
+  function saveEssaySettings() {
+    localStorage.setItem(STORAGE_KEY_ESSAY_FONT, state.essay.fontSize);
+    localStorage.setItem(STORAGE_KEY_ESSAY_HIGHLIGHT, JSON.stringify(state.essay.highlight));
   }
 
   // 6. MCQ FILTERING & SEARCH
@@ -722,7 +753,7 @@
 
   // 14. RESET PROGRESS
   function resetAllData() {
-    const ok = confirm("Bạn có chắc chắn muốn đặt lại toàn bộ tiến độ làm bài trắc nghiệm và thẻ ghi nhớ không?");
+    const ok = confirm("Bạn có chắc chắn muốn đặt lại toàn bộ tiến độ làm bài (Trắc nghiệm, Trả lời ngắn, Tự luận)?");
     if (!ok) return;
 
     state.userAnswers = {};
@@ -730,12 +761,15 @@
     state.sa.mastered.clear();
     state.sa.review.clear();
     saveFcProgress();
+    state.essay.mastered.clear();
+    saveEssayMastered();
 
     state.currentMcqIndex = 0;
     updateFilteredIndices();
     renderCurrentMcq();
     updateBadges();
     renderFlashcard();
+    renderEssayUI();
     alert("Đã đặt lại tiến độ về ban đầu!");
   }
 
@@ -895,190 +929,478 @@
     }, 2500);
   }
 
-  // 17.2 ESSAY FUNCTIONS
-  function getFilteredEssayList() {
-    const q = state.essay.searchQuery.trim().toLowerCase();
-    const topic = state.essay.filterTopic;
+  // 17.2 ESSAY PEDAGOGICAL FUNCTIONS
+  const ESSAY_FONT_SIZES = ['font-size-sm', 'font-size-md', 'font-size-lg', 'font-size-xl'];
 
-    return rawEssayList.filter(item => {
-      let matchesTopic = true;
-      if (topic !== 'all') {
-        matchesTopic = item.tags.some(t => t.toLowerCase().includes(topic.toLowerCase())) ||
-                       item.title.toLowerCase().includes(topic.toLowerCase());
-      }
+  function adjustFontSize(direction) {
+    let currentIdx = ESSAY_FONT_SIZES.indexOf(state.essay.fontSize);
+    if (currentIdx === -1) currentIdx = 1;
 
-      let matchesSearch = true;
-      if (q) {
-        const inTitle = item.title.toLowerCase().includes(q);
-        const inQuestion = item.question.toLowerCase().includes(q);
-        const inTags = item.tags.some(t => t.toLowerCase().includes(q));
-        const inOutline = item.outline.some(o => o.toLowerCase().includes(q));
-        const inKeypoints = item.keyPoints.some(k => k.toLowerCase().includes(q));
-        const inSections = item.contentSections.some(s =>
-          s.heading.toLowerCase().includes(q) || s.body.some(b => b.toLowerCase().includes(q))
-        );
-        matchesSearch = inTitle || inQuestion || inTags || inOutline || inKeypoints || inSections;
-      }
-
-      return matchesTopic && matchesSearch;
-    });
+    if (direction === 'increase' && currentIdx < ESSAY_FONT_SIZES.length - 1) {
+      state.essay.fontSize = ESSAY_FONT_SIZES[currentIdx + 1];
+    } else if (direction === 'decrease' && currentIdx > 0) {
+      state.essay.fontSize = ESSAY_FONT_SIZES[currentIdx - 1];
+    }
+    saveEssaySettings();
+    renderEssayUI();
+    const labelMap = {
+      'font-size-sm': 'Nhỏ (13.5px)',
+      'font-size-md': 'Vừa (15px)',
+      'font-size-lg': 'Lớn (16.5px)',
+      'font-size-xl': 'Rất lớn (18px)'
+    };
+    showToast(`Cỡ chữ: ${labelMap[state.essay.fontSize] || state.essay.fontSize}`);
+    playClickSound();
   }
 
-  function renderEssayQuickNav() {
-    if (!dom.essayQuickNav) return;
-    dom.essayQuickNav.innerHTML = '';
+  function toggleCurrentEssayMastered() {
+    const currentQ = rawEssayList[state.essay.currentIndex];
+    if (!currentQ) return;
 
-    const allChip = document.createElement('button');
-    allChip.className = `essay-nav-chip ${state.essay.filterTopic === 'all' ? 'active' : ''}`;
-    allChip.innerHTML = `<span class="chip-num">★</span><span>Tất cả (5 câu)</span>`;
-    allChip.addEventListener('click', () => {
-      state.essay.filterTopic = 'all';
-      if (dom.filterEssayTopic) dom.filterEssayTopic.value = 'all';
+    if (state.essay.mastered.has(currentQ.id)) {
+      state.essay.mastered.delete(currentQ.id);
+      showToast(`Đã bỏ đánh dấu câu ${currentQ.id}`);
       playClickSound();
-      renderEssayQuickNav();
-      renderEssayList();
-    });
-    dom.essayQuickNav.appendChild(allChip);
-
-    rawEssayList.forEach(item => {
-      const chip = document.createElement('button');
-      const isActive = state.essay.filterTopic === item.tags[0];
-      chip.className = `essay-nav-chip ${isActive ? 'active' : ''}`;
-      chip.innerHTML = `<span class="chip-num">${item.id}</span><span>${item.tags[0]}</span>`;
-      chip.addEventListener('click', () => {
-        const el = document.getElementById(`essay-card-${item.id}`);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          if (el.classList.contains('collapsed')) {
-            el.classList.remove('collapsed');
-            state.essay.collapsedMap[item.id] = false;
-          }
-        }
-        playClickSound();
-      });
-      dom.essayQuickNav.appendChild(chip);
-    });
+    } else {
+      state.essay.mastered.add(currentQ.id);
+      showToast(`Tuyệt vời! Đã thuộc câu ${currentQ.id} 🎉`);
+      playCorrectSound();
+      if (state.essay.mastered.size === rawEssayList.length) {
+        setTimeout(triggerConfetti, 300);
+      }
+    }
+    saveEssayMastered();
+    renderEssayUI();
   }
 
-  function renderEssayList() {
-    if (!dom.essayListContainer) return;
-    dom.essayListContainer.innerHTML = '';
-    const filtered = getFilteredEssayList();
+  function renderEssayUI() {
+    if (!dom.essayStepperNav) return;
 
-    if (filtered.length === 0) {
-      dom.essayListContainer.innerHTML = `
-        <div class="empty-state">
-          <div class="empty-icon">🔍</div>
-          <h4>Không tìm thấy câu hỏi tự luận phù hợp</h4>
-          <p>Hãy thử tìm bằng từ khóa khác hoặc chọn "Tất cả chuyên đề".</p>
-        </div>
-      `;
-      return;
+    // Header Progress Bar
+    const masteredCount = state.essay.mastered.size;
+    const totalCount = rawEssayList.length;
+    if (dom.essayMasteredCount) {
+      dom.essayMasteredCount.textContent = `${masteredCount}/${totalCount}`;
+    }
+    if (dom.essayProgressBar) {
+      const pct = Math.round((masteredCount / totalCount) * 100);
+      dom.essayProgressBar.style.width = `${pct}%`;
     }
 
-    filtered.forEach(item => {
-      const isCollapsed = state.essay.collapsedMap[item.id] === true;
-      const card = document.createElement('div');
-      card.className = `essay-card ${isCollapsed ? 'collapsed' : ''}`;
-      card.id = `essay-card-${item.id}`;
+    // Stepper Tabs
+    renderEssayStepper();
 
-      const tagsHtml = item.tags.map(t => `<span class="tag-topic">${t}</span>`).join('');
-      const outlineHtml = item.outline.map(o => `<li>${o}</li>`).join('');
-      const keypointsHtml = item.keyPoints.map(k => `<span class="keypoint-badge">✦ ${k}</span>`).join('');
+    // Study Mode Switcher active classes
+    if (dom.modeEssayMindmap) {
+      dom.modeEssayMindmap.classList.toggle('active', state.essay.mode === 'mindmap');
+    }
+    if (dom.modeEssayFull) {
+      dom.modeEssayFull.classList.toggle('active', state.essay.mode === 'full');
+    }
+    if (dom.modeEssayRecall) {
+      dom.modeEssayRecall.classList.toggle('active', state.essay.mode === 'recall');
+    }
 
-      const sectionsHtml = item.contentSections.map(sec => `
-        <div class="essay-section-block">
-          <div class="essay-section-heading">🏛️ ${sec.heading}</div>
-          <div class="essay-paragraphs">
-            ${sec.body.map(p => `<p>${p}</p>`).join('')}
+    // Highlight keywords button
+    if (dom.btnToggleEssayHighlight) {
+      dom.btnToggleEssayHighlight.classList.toggle('active', state.essay.highlight);
+    }
+
+    // Mastered button for current question
+    const currentQ = rawEssayList[state.essay.currentIndex];
+    const isMastered = currentQ && state.essay.mastered.has(currentQ.id);
+    if (dom.btnToggleEssayMastered) {
+      dom.btnToggleEssayMastered.classList.toggle('is-mastered-active', isMastered);
+    }
+    if (dom.masteredBtnText) {
+      dom.masteredBtnText.textContent = isMastered ? 'Đã thuộc câu này ✓' : 'Đánh dấu đã thuộc';
+    }
+    if (dom.masteredCheckIcon) {
+      dom.masteredCheckIcon.textContent = isMastered ? '✓' : '+';
+    }
+
+    // View All vs Focus Display
+    if (state.essay.viewAll) {
+      if (dom.essayFocusDisplay) dom.essayFocusDisplay.classList.add('hidden');
+      if (dom.essayBottomNav) dom.essayBottomNav.classList.add('hidden');
+      if (dom.essayViewAllContainer) dom.essayViewAllContainer.classList.remove('hidden');
+      if (dom.btnEssayViewModeText) dom.btnEssayViewModeText.textContent = 'Xem từng câu (Focus)';
+      renderEssayViewAll();
+    } else {
+      if (dom.essayFocusDisplay) dom.essayFocusDisplay.classList.remove('hidden');
+      if (dom.essayBottomNav) dom.essayBottomNav.classList.remove('hidden');
+      if (dom.essayViewAllContainer) dom.essayViewAllContainer.classList.add('hidden');
+      if (dom.btnEssayViewModeText) dom.btnEssayViewModeText.textContent = 'Xem toàn bộ 5 câu';
+      renderEssayFocus();
+      renderEssayBottomNav();
+    }
+  }
+
+  function renderEssayStepper() {
+    if (!dom.essayStepperNav) return;
+    dom.essayStepperNav.innerHTML = '';
+
+    rawEssayList.forEach((item, idx) => {
+      const btn = document.createElement('button');
+      const isActive = idx === state.essay.currentIndex && !state.essay.viewAll;
+      const isMastered = state.essay.mastered.has(item.id);
+
+      btn.className = `stepper-btn ${isActive ? 'active' : ''} ${isMastered ? 'is-mastered' : ''}`;
+      btn.title = `Chuyển sang Câu ${item.id}: ${item.title}`;
+
+      btn.innerHTML = `
+        <div class="stepper-top-row">
+          <span class="stepper-num-tag">CÂU ${item.id}</span>
+          <span class="stepper-mastered-indicator">✓ Đã thuộc</span>
+        </div>
+        <div class="stepper-title-box">
+          <span class="stepper-icon">${item.icon || '📝'}</span>
+          <span>${item.shortTitle || item.title}</span>
+        </div>
+      `;
+
+      btn.addEventListener('click', () => {
+        state.essay.currentIndex = idx;
+        state.essay.viewAll = false;
+        playClickSound();
+        renderEssayUI();
+        if (dom.essayModeToolbar) {
+          dom.essayModeToolbar.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+
+      dom.essayStepperNav.appendChild(btn);
+    });
+  }
+
+  function renderEssayFocus() {
+    if (!dom.essayFocusDisplay) return;
+    dom.essayFocusDisplay.innerHTML = '';
+    const q = rawEssayList[state.essay.currentIndex];
+    if (!q) return;
+
+    dom.essayFocusDisplay.className = `essay-focus-display ${state.essay.fontSize} ${state.essay.highlight ? 'highlight-active' : ''}`;
+
+    // 1. Question Hero Box
+    const heroBox = document.createElement('div');
+    heroBox.className = 'essay-question-hero-box';
+    heroBox.innerHTML = `
+      <div class="question-meta-row">
+        <span class="question-badge-pill">CÂU ${q.id} TRỌNG TÂM</span>
+        <div class="question-tags-row">
+          ${q.tags.map(t => `<span class="q-topic-tag">${t}</span>`).join('')}
+        </div>
+      </div>
+      <h3 class="question-text-full">${q.question}</h3>
+    `;
+    dom.essayFocusDisplay.appendChild(heroBox);
+
+    // 2. 30s Takeaway Box
+    const takeawayBox = document.createElement('div');
+    takeawayBox.className = 'essay-takeaway-box';
+    takeawayBox.innerHTML = `
+      <div class="takeaway-header">
+        <span>⚡ Tóm tắt cốt lõi trong 30 giây (Nắm chắc ý chính)</span>
+      </div>
+      <div class="takeaway-content">
+        ${q.takeaway}
+      </div>
+    `;
+    dom.essayFocusDisplay.appendChild(takeawayBox);
+
+    // 3. Mode Content
+    if (state.essay.mode === 'mindmap') {
+      renderMindmapContent(q, dom.essayFocusDisplay);
+    } else if (state.essay.mode === 'full') {
+      renderFullContent(q, dom.essayFocusDisplay);
+    } else if (state.essay.mode === 'recall') {
+      renderRecallContent(q, dom.essayFocusDisplay);
+    }
+  }
+
+  function renderMindmapContent(q, container) {
+    // 4 Mindmap Nodes
+    if (q.mindmapNodes && q.mindmapNodes.length > 0) {
+      const grid = document.createElement('div');
+      grid.className = 'mindmap-cards-grid';
+      grid.innerHTML = q.mindmapNodes.map(node => `
+        <div class="mindmap-card">
+          <div class="mindmap-card-head">
+            <div class="mindmap-card-title">
+              <span>${node.icon || '📌'}</span>
+              <span>${node.title}</span>
+            </div>
+            <span class="mindmap-badge">${node.badge || 'Trọng tâm'}</span>
           </div>
+          <ul class="mindmap-points-list">
+            ${node.points.map(pt => `<li>${pt}</li>`).join('')}
+          </ul>
         </div>
       `).join('');
+      container.appendChild(grid);
+    }
 
+    // Key Stats Strip
+    if (q.keyStats && q.keyStats.length > 0) {
+      const statsSec = document.createElement('div');
+      statsSec.className = 'key-stats-section';
+      statsSec.innerHTML = `
+        <div class="section-mini-heading">
+          <span>📊 Số liệu thực tiễn đắt giá (Dẫn chứng ăn trọn điểm)</span>
+        </div>
+        <div class="stats-pill-grid">
+          ${q.keyStats.map(s => `
+            <div class="stat-pill-card">
+              <span class="stat-pill-val">${s.value}</span>
+              <span class="stat-pill-lbl">${s.label}</span>
+              <span class="stat-pill-sub">${s.sub}</span>
+            </div>
+          `).join('')}
+        </div>
+      `;
+      container.appendChild(statsSec);
+    }
+
+    // Key Terms Cloud
+    if (q.keyPoints && q.keyPoints.length > 0) {
+      const termsBox = document.createElement('div');
+      termsBox.className = 'key-terms-box';
+      termsBox.innerHTML = `
+        <div class="section-mini-heading">
+          <span>💡 Từ khóa cốt lõi bắt buộc phải có trong bài làm</span>
+        </div>
+        <div class="key-terms-chips">
+          ${q.keyPoints.map(kp => `<span class="term-pill">✦ ${kp}</span>`).join('')}
+        </div>
+      `;
+      container.appendChild(termsBox);
+    }
+  }
+
+  function renderFullContent(q, container) {
+    const sectionsWrap = document.createElement('div');
+    sectionsWrap.className = 'essay-full-sections';
+
+    q.contentSections.forEach((sec, idx) => {
+      const secKey = `q${q.id}_s${idx}`;
+      const isCollapsed = state.essay.collapsedSections[secKey] === true;
+      const card = document.createElement('div');
+      card.className = `full-section-card ${isCollapsed ? 'collapsed' : ''}`;
       card.innerHTML = `
-        <div class="essay-card-header" data-id="${item.id}">
-          <div class="essay-header-top">
-            <div class="essay-tags-group">
-              <span class="tag-q-num">CÂU ${item.id}</span>
-              ${tagsHtml}
-            </div>
-            <div class="essay-header-buttons">
-              <button class="btn-copy-essay" data-id="${item.id}" title="Sao chép toàn bộ bài giải câu này">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                <span>Sao chép bài giải</span>
-              </button>
-              <button class="btn-toggle-expand" data-id="${item.id}" title="Mở rộng / Thu gọn">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-              </button>
-            </div>
+        <div class="full-section-head">
+          <div class="full-section-title">
+            <span>🏛️</span>
+            <span>${sec.heading}</span>
           </div>
-          <h3 class="essay-question-title">${item.title}</h3>
-          <div class="essay-prompt-callout">
-            <strong>Đề bài chi tiết:</strong> ${item.question}
+          <div class="full-section-arrow">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </div>
         </div>
+        <div class="full-section-body">
+          ${sec.body.map(p => `<p>${p}</p>`).join('')}
+        </div>
+      `;
 
-        <div class="essay-card-body">
-          <div class="essay-meta-boxes">
-            <div class="essay-outline-box">
-              <div class="essay-box-title">📌 Dàn ý ghi nhớ nhanh</div>
-              <ul class="essay-outline-list">
-                ${outlineHtml}
-              </ul>
-            </div>
-            <div class="essay-keypoints-box">
-              <div class="essay-box-title">💡 Từ khóa ăn điểm tối đa</div>
-              <div class="keypoints-chips">
-                ${keypointsHtml}
+      card.querySelector('.full-section-head').addEventListener('click', () => {
+        const collapsedNow = !card.classList.contains('collapsed');
+        card.classList.toggle('collapsed', collapsedNow);
+        state.essay.collapsedSections[secKey] = collapsedNow;
+        playClickSound();
+      });
+
+      sectionsWrap.appendChild(card);
+    });
+
+    container.appendChild(sectionsWrap);
+  }
+
+  function renderRecallContent(q, container) {
+    const recallWrap = document.createElement('div');
+    recallWrap.className = 'essay-recall-view';
+
+    recallWrap.innerHTML = `
+      <div class="recall-banner">
+        <span>💡 <strong>Phương pháp Active Recall:</strong> Hãy đọc từng câu hỏi bên dưới, tự nhẩm hoặc ghi ra nháp ý chính trước khi nhấn "Xem gợi ý & ý chính" để kiểm tra mức độ thuộc bài của bạn!</span>
+      </div>
+      <div class="recall-cards-list">
+        ${(q.selfCheckPrompts || []).map((prompt, pIdx) => {
+          const promptKey = `q${q.id}_p${pIdx}`;
+          const isRevealed = state.essay.revealedHints.has(promptKey);
+          return `
+            <div class="recall-prompt-card" data-key="${promptKey}">
+              <div class="recall-prompt-question">
+                <span>❓</span>
+                <span><strong>Câu hỏi ${pIdx + 1}:</strong> ${prompt.question}</span>
+              </div>
+              <button class="recall-toggle-btn" data-key="${promptKey}">
+                <span>${isRevealed ? '🙈 Ẩn gợi ý' : '👁️ Xem gợi ý & ý chính'}</span>
+              </button>
+              <div class="recall-hint-box ${isRevealed ? '' : 'hidden'}">
+                <strong>Ý chính cần nhớ:</strong> ${prompt.hint}
               </div>
             </div>
-          </div>
+          `;
+        }).join('')}
+      </div>
+      <div class="recall-show-all-row">
+        <button class="btn-subtle-sm" id="btn-toggle-all-recall-prompts">
+          <span>👁️ Xem tất cả gợi ý câu này</span>
+        </button>
+      </div>
+    `;
 
-          <div class="essay-sections-container">
-            ${sectionsHtml}
+    // Toggle individual hint
+    recallWrap.querySelectorAll('.recall-toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.key;
+        const card = btn.closest('.recall-prompt-card');
+        const hintBox = card.querySelector('.recall-hint-box');
+        const isRevealed = state.essay.revealedHints.has(key);
+
+        if (isRevealed) {
+          state.essay.revealedHints.delete(key);
+          hintBox.classList.add('hidden');
+          btn.innerHTML = '<span>👁️ Xem gợi ý & ý chính</span>';
+        } else {
+          state.essay.revealedHints.add(key);
+          hintBox.classList.remove('hidden');
+          btn.innerHTML = '<span>🙈 Ẩn gợi ý</span>';
+          playCorrectSound();
+        }
+      });
+    });
+
+    // Toggle all hints
+    const toggleAllBtn = recallWrap.querySelector('#btn-toggle-all-recall-prompts');
+    if (toggleAllBtn) {
+      toggleAllBtn.addEventListener('click', () => {
+        const allKeys = (q.selfCheckPrompts || []).map((_, pIdx) => `q${q.id}_p${pIdx}`);
+        const allRevealed = allKeys.every(k => state.essay.revealedHints.has(k));
+
+        allKeys.forEach(k => {
+          if (allRevealed) {
+            state.essay.revealedHints.delete(k);
+          } else {
+            state.essay.revealedHints.add(k);
+          }
+        });
+        playClickSound();
+        renderEssayFocus();
+      });
+    }
+
+    container.appendChild(recallWrap);
+  }
+
+  function renderEssayBottomNav() {
+    if (!dom.essayBottomNav) return;
+    const total = rawEssayList.length;
+    const cur = state.essay.currentIndex;
+
+    if (dom.stepIndicatorText) {
+      dom.stepIndicatorText.textContent = `Câu ${cur + 1} / ${total}`;
+    }
+    if (dom.btnEssayPrev) {
+      dom.btnEssayPrev.disabled = cur === 0;
+    }
+    if (dom.btnEssayNext) {
+      dom.btnEssayNext.disabled = cur === total - 1;
+    }
+  }
+
+  function renderEssayViewAll() {
+    if (!dom.essayViewAllContainer) return;
+    dom.essayViewAllContainer.innerHTML = '';
+    dom.essayViewAllContainer.className = `essay-view-all-container ${state.essay.fontSize} ${state.essay.highlight ? 'highlight-active' : ''}`;
+
+    rawEssayList.forEach((q) => {
+      const qBlock = document.createElement('div');
+      qBlock.className = 'essay-card';
+      qBlock.id = `essay-viewall-${q.id}`;
+      qBlock.style.marginBottom = '28px';
+
+      const isMastered = state.essay.mastered.has(q.id);
+      qBlock.innerHTML = `
+        <div class="essay-question-hero-box" style="margin-bottom: 16px;">
+          <div class="question-meta-row">
+            <span class="question-badge-pill">CÂU ${q.id} ${isMastered ? '✓ ĐÃ THUỘC' : ''}</span>
+            <div class="question-tags-row">
+              ${q.tags.map(t => `<span class="q-topic-tag">${t}</span>`).join('')}
+            </div>
+            <button class="tool-btn btn-viewall-copy" data-id="${q.id}" style="margin-left:auto;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span>Sao chép câu ${q.id}</span>
+            </button>
+          </div>
+          <h3 class="question-text-full">${q.question}</h3>
+        </div>
+
+        <div class="essay-takeaway-box" style="margin-bottom: 16px;">
+          <div class="takeaway-header">
+            <span>⚡ Tóm tắt cốt lõi trong 30 giây</span>
+          </div>
+          <div class="takeaway-content">
+            ${q.takeaway}
           </div>
         </div>
       `;
 
-      // Header click toggles collapse
-      const header = card.querySelector('.essay-card-header');
-      header.addEventListener('click', (e) => {
-        if (e.target.closest('.btn-copy-essay')) return;
-        const willCollapse = !card.classList.contains('collapsed');
-        card.classList.toggle('collapsed', willCollapse);
-        state.essay.collapsedMap[item.id] = willCollapse;
-        playClickSound();
-      });
-
-      // Copy button
-      const copyBtn = card.querySelector('.btn-copy-essay');
-      copyBtn.addEventListener('click', (e) => {
+      qBlock.querySelector('.btn-viewall-copy').addEventListener('click', (e) => {
         e.stopPropagation();
-        copyEssayText(item);
+        copyEssayText(q);
       });
 
-      dom.essayListContainer.appendChild(card);
+      renderMindmapContent(q, qBlock);
+
+      const secWrap = document.createElement('div');
+      secWrap.style.marginTop = '16px';
+      renderFullContent(q, secWrap);
+      qBlock.appendChild(secWrap);
+
+      dom.essayViewAllContainer.appendChild(qBlock);
     });
   }
 
   function copyEssayText(item) {
-    let text = `PHẦN III: TỰ LUẬN - CÂU ${item.id}\n`;
-    text += `ĐỀ BÀI: ${item.question}\n\n`;
-    text += `========================================\n`;
-    text += `I. DÀN Ý TỔNG QUAN:\n`;
-    item.outline.forEach(o => { text += `• ${o}\n`; });
-    text += `\nII. TỪ KHÓA TRỌNG TÂM:\n`;
-    text += item.keyPoints.join(" | ") + `\n\n`;
-    text += `========================================\n`;
-    text += `III. BÀI GIẢI CHI TIẾT:\n\n`;
+    if (!item) return;
+    let text = `========================================================\n`;
+    text += `PHẦN III: TỰ LUẬN - CÂU ${item.id}\n`;
+    text += `========================================================\n\n`;
+    text += `ĐỀ BÀI:\n${item.question}\n\n`;
+    text += `--------------------------------------------------------\n`;
+    text += `TÓM TẮT CỐT LÕI (30 GIÂY):\n${item.takeaway}\n\n`;
 
-    item.contentSections.forEach(sec => {
-      text += `${sec.heading.toUpperCase()}\n`;
-      sec.body.forEach(b => {
-        const cleanP = b.replace(/<[^>]+>/g, '');
-        text += `${cleanP}\n\n`;
+    if (item.outline && item.outline.length > 0) {
+      text += `--------------------------------------------------------\n`;
+      text += `I. DÀN Ý TỔNG QUAN:\n`;
+      item.outline.forEach(o => { text += `• ${o}\n`; });
+      text += `\n`;
+    }
+
+    if (item.keyPoints && item.keyPoints.length > 0) {
+      text += `--------------------------------------------------------\n`;
+      text += `II. TỪ KHÓA TRỌNG TÂM ĂN ĐIỂM:\n`;
+      text += item.keyPoints.join(" | ") + `\n\n`;
+    }
+
+    if (item.keyStats && item.keyStats.length > 0) {
+      text += `--------------------------------------------------------\n`;
+      text += `III. SỐ LIỆU DẪN CHỨNG THỰC TIỄN:\n`;
+      item.keyStats.forEach(s => { text += `• ${s.label}: ${s.value} (${s.sub})\n`; });
+      text += `\n`;
+    }
+
+    if (item.contentSections && item.contentSections.length > 0) {
+      text += `--------------------------------------------------------\n`;
+      text += `IV. BÀI GIẢI MẪU CHI TIẾT (CHUẨN GIÁO TRÌNH):\n\n`;
+      item.contentSections.forEach(sec => {
+        text += `[${sec.heading.toUpperCase()}]\n`;
+        sec.body.forEach(b => {
+          const cleanP = b.replace(/<[^>]+>/g, '');
+          text += `${cleanP}\n\n`;
+        });
       });
-    });
+    }
 
     navigator.clipboard.writeText(text).then(() => {
       playCorrectSound();
@@ -1104,8 +1426,7 @@
       renderTypeIn();
       renderSaListAll();
     } else if (tabId === 'tab-essay') {
-      renderEssayQuickNav();
-      renderEssayList();
+      renderEssayUI();
     } else if (tabId === 'tab-stats') {
       updateBadges();
     }
@@ -1219,6 +1540,36 @@
             state.sa.currentFcIndex++;
             renderFlashcard();
           }
+        }
+      } else if (activeTab === 'tab-essay') {
+        if (e.key === 'ArrowLeft') {
+          if (state.essay.currentIndex > 0) {
+            state.essay.currentIndex--;
+            state.essay.viewAll = false;
+            playClickSound();
+            renderEssayUI();
+          }
+        } else if (e.key === 'ArrowRight') {
+          if (state.essay.currentIndex < rawEssayList.length - 1) {
+            state.essay.currentIndex++;
+            state.essay.viewAll = false;
+            playClickSound();
+            renderEssayUI();
+          }
+        } else if (e.key === '1') {
+          state.essay.mode = 'mindmap';
+          playClickSound();
+          renderEssayUI();
+        } else if (e.key === '2') {
+          state.essay.mode = 'full';
+          playClickSound();
+          renderEssayUI();
+        } else if (e.key === '3') {
+          state.essay.mode = 'recall';
+          playClickSound();
+          renderEssayUI();
+        } else if (e.key === 'm' || e.key === 'M') {
+          toggleCurrentEssayMastered();
         }
       }
     });
@@ -1446,64 +1797,107 @@
       renderCurrentMcq();
     });
 
-    // Essay event listeners
-    if (dom.searchEssayInput) {
-      dom.searchEssayInput.addEventListener('input', (e) => {
-        state.essay.searchQuery = e.target.value;
-        if (dom.btnClearEssaySearch) {
-          dom.btnClearEssaySearch.classList.toggle('hidden', !state.essay.searchQuery);
+    // Essay Mode switchers
+    if (dom.modeEssayMindmap) {
+      dom.modeEssayMindmap.addEventListener('click', () => {
+        state.essay.mode = 'mindmap';
+        state.essay.viewAll = false;
+        playClickSound();
+        renderEssayUI();
+      });
+    }
+
+    if (dom.modeEssayFull) {
+      dom.modeEssayFull.addEventListener('click', () => {
+        state.essay.mode = 'full';
+        state.essay.viewAll = false;
+        playClickSound();
+        renderEssayUI();
+      });
+    }
+
+    if (dom.modeEssayRecall) {
+      dom.modeEssayRecall.addEventListener('click', () => {
+        state.essay.mode = 'recall';
+        state.essay.viewAll = false;
+        playClickSound();
+        renderEssayUI();
+      });
+    }
+
+    // Toggle view all
+    if (dom.btnEssayViewAll) {
+      dom.btnEssayViewAll.addEventListener('click', () => {
+        state.essay.viewAll = !state.essay.viewAll;
+        playClickSound();
+        renderEssayUI();
+      });
+    }
+
+    // Toggle Mastered
+    if (dom.btnToggleEssayMastered) {
+      dom.btnToggleEssayMastered.addEventListener('click', () => {
+        toggleCurrentEssayMastered();
+      });
+    }
+
+    // Toggle Highlight
+    if (dom.btnToggleEssayHighlight) {
+      dom.btnToggleEssayHighlight.addEventListener('click', () => {
+        state.essay.highlight = !state.essay.highlight;
+        saveEssaySettings();
+        renderEssayUI();
+        showToast(state.essay.highlight ? "Đã bật tô màu từ khóa 🖍️" : "Đã tắt tô màu từ khóa");
+        playClickSound();
+      });
+    }
+
+    // Font size controls
+    if (dom.btnFontDecrease) {
+      dom.btnFontDecrease.addEventListener('click', () => adjustFontSize('decrease'));
+    }
+    if (dom.btnFontIncrease) {
+      dom.btnFontIncrease.addEventListener('click', () => adjustFontSize('increase'));
+    }
+
+    // Copy current essay
+    if (dom.btnCurrentEssayCopy) {
+      dom.btnCurrentEssayCopy.addEventListener('click', () => {
+        const q = rawEssayList[state.essay.currentIndex];
+        copyEssayText(q);
+      });
+    }
+
+    // Print
+    if (dom.btnEssayPrintView) {
+      dom.btnEssayPrintView.addEventListener('click', () => {
+        playClickSound();
+        window.print();
+      });
+    }
+
+    // Bottom Navigation Prev / Next
+    if (dom.btnEssayPrev) {
+      dom.btnEssayPrev.addEventListener('click', () => {
+        if (state.essay.currentIndex > 0) {
+          state.essay.currentIndex--;
+          state.essay.viewAll = false;
+          playClickSound();
+          renderEssayUI();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        renderEssayList();
       });
     }
 
-    if (dom.btnClearEssaySearch) {
-      dom.btnClearEssaySearch.addEventListener('click', () => {
-        dom.searchEssayInput.value = '';
-        state.essay.searchQuery = '';
-        dom.btnClearEssaySearch.classList.add('hidden');
-        renderEssayList();
-      });
-    }
-
-    if (dom.filterEssayTopic) {
-      dom.filterEssayTopic.addEventListener('change', (e) => {
-        state.essay.filterTopic = e.target.value;
-        playClickSound();
-        renderEssayQuickNav();
-        renderEssayList();
-      });
-    }
-
-    if (dom.btnEssayExpandAll) {
-      dom.btnEssayExpandAll.addEventListener('click', () => {
-        rawEssayList.forEach(item => {
-          state.essay.collapsedMap[item.id] = false;
-        });
-        playClickSound();
-        renderEssayList();
-      });
-    }
-
-    if (dom.btnEssayCollapseAll) {
-      dom.btnEssayCollapseAll.addEventListener('click', () => {
-        rawEssayList.forEach(item => {
-          state.essay.collapsedMap[item.id] = true;
-        });
-        playClickSound();
-        renderEssayList();
-      });
-    }
-
-    if (dom.btnEssayPrint) {
-      dom.btnEssayPrint.addEventListener('click', () => {
-        playClickSound();
-        // Ensure all cards are expanded before printing
-        rawEssayList.forEach(item => {
-          state.essay.collapsedMap[item.id] = false;
-        });
-        renderEssayList();
-        setTimeout(() => window.print(), 200);
+    if (dom.btnEssayNext) {
+      dom.btnEssayNext.addEventListener('click', () => {
+        if (state.essay.currentIndex < rawEssayList.length - 1) {
+          state.essay.currentIndex++;
+          state.essay.viewAll = false;
+          playClickSound();
+          renderEssayUI();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     }
   }
@@ -1516,8 +1910,7 @@
     renderFlashcard();
     renderTypeIn();
     renderSaListAll();
-    renderEssayQuickNav();
-    renderEssayList();
+    renderEssayUI();
     updateBadges();
     initEventListeners();
     initKeyboardShortcuts();

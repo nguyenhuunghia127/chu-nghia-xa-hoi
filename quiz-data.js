@@ -1418,12 +1418,86 @@ const QUIZ_DATA = {
     {
       "id": 1,
       "title": "Thời kỳ quá độ lên CNXH, Thành tựu KT-XH Việt Nam & Trách nhiệm sinh viên",
+      "shortTitle": "Thời kỳ quá độ & Đổi mới KT-XH",
+      "icon": "🚀",
       "question": "1. Đặc điểm của thời kỳ quá độ lên Chủ nghĩa xã hội? Phân tích một số thành tựu phát triển kinh tế - xã hội của Việt Nam trong thời kỳ quá độ lên Chủ nghĩa xã hội. Là sinh viên, anh (chị) phải làm gì để góp phần xây dựng và phát triển đất nước?",
       "tags": [
         "Thời kỳ quá độ",
         "Kinh tế - Xã hội Việt Nam",
         "Đổi mới",
         "Trách nhiệm sinh viên"
+      ],
+      "takeaway": "Thời kỳ quá độ là cuộc cải biến cách mạng toàn diện, đan xen và đấu tranh quyết liệt giữa cái cũ và cái mới. Việt Nam thực hiện quá độ gián tiếp (bỏ qua TBCN). Sau gần 40 năm Đổi mới, đất nước đạt kỳ tích về quy mô GDP (>430 tỷ USD), giảm nghèo (<3%) và hội nhập quốc tế sâu rộng. Sinh viên có trách nhiệm kiên định lý tưởng, làm chủ tri thức số và cống hiến vì cộng đồng.",
+      "keyStats": [
+        {
+          "label": "Quy mô GDP",
+          "value": ">430 Tỷ USD",
+          "sub": "Top 35 thế giới, Top 4 ASEAN"
+        },
+        {
+          "label": "Thu nhập bình quân",
+          "value": ">4.300 USD/người",
+          "sub": "Thoát nghèo, vào nhóm thu nhập TB"
+        },
+        {
+          "label": "Tỷ lệ nghèo đa chiều",
+          "value": "<3%",
+          "sub": "Giảm kỳ tích từ >58% (1993)"
+        },
+        {
+          "label": "Kim ngạch XNK",
+          "value": ">700 Tỷ USD",
+          "sub": "Top 20 thế giới, 16+ FTAs thế hệ mới"
+        },
+        {
+          "label": "Tuổi thọ trung bình",
+          "value": "73,7 Tuổi",
+          "sub": "BHYT bao phủ trên 93% dân số"
+        }
+      ],
+      "mindmapNodes": [
+        {
+          "title": "1. Khái niệm & Quá độ",
+          "icon": "📌",
+          "badge": "Lý luận cốt lõi",
+          "points": [
+            "Khái niệm: cải biến toàn diện, sâu sắc từ xã hội cũ sang CNXH",
+            "Trực tiếp: từ TBCN phát triển cao tiến thẳng lên CNXH",
+            "Gián tiếp: từ tiền tư bản, nông nghiệp lạc hậu, bỏ qua TBCN (Việt Nam)"
+          ]
+        },
+        {
+          "title": "2. Bốn đặc điểm cốt lõi",
+          "icon": "⚖️",
+          "badge": "Đan xen cũ & mới",
+          "points": [
+            "Kinh tế: nhiều thành phần; phân phối theo lao động là chủ đạo; kinh tế thị trường định hướng XHCN",
+            "Chính trị: Nhà nước pháp quyền XHCN mang bản chất công nhân; liên minh công - nông - trí; đấu tranh chống diễn biến hòa bình",
+            "Tư tưởng - văn hóa: CN Mác-Lênin chủ đạo; bài trừ hủ tục phong kiến, lối sống thực dụng; xây dựng văn hóa tiên tiến đậm đà bản sắc",
+            "Xã hội: cơ cấu giai cấp đa dạng; vừa hợp tác vừa khác biệt; còn phân hóa giàu nghèo"
+          ]
+        },
+        {
+          "title": "3. Thành tựu KT-XH Việt Nam",
+          "icon": "🇻🇳",
+          "badge": "Gần 40 năm Đổi mới",
+          "points": [
+            "Kinh tế: GDP vượt 430 tỷ USD; công nghiệp - dịch vụ chiếm >85%; xuất nhập khẩu >700 tỷ USD",
+            "Xã hội: Nghèo đa chiều giảm từ >58% xuống <3% (điểm sáng toàn cầu); tuổi thọ đạt 73.7; BHYT >93%",
+            "Vị thế: Cơ đồ, tiềm lực, vị thế và uy tín quốc tế của Việt Nam chưa bao giờ cao như hiện nay"
+          ]
+        },
+        {
+          "title": "4. Trách nhiệm sinh viên",
+          "icon": "🎓",
+          "badge": "Hành động thiết thực",
+          "points": [
+            "Tư tưởng: kiên định độc lập dân tộc & CNXH, phản bác luận điệu thù địch",
+            "Học tập: làm chủ tri thức số, ngoại ngữ, nghiên cứu khoa học, khởi nghiệp sáng tạo",
+            "Đạo đức: cần kiệm liêm chính, tôn trọng pháp luật, lối sống văn minh",
+            "Thực tiễn: xung kích Mùa hè xanh, Tiếp sức mùa thi, hiến máu, cống hiến vì đất nước"
+          ]
+        }
       ],
       "outline": [
         "1. Khái niệm và tính tất yếu của thời kỳ quá độ lên CNXH (Trực tiếp & Gián tiếp).",
@@ -1439,6 +1513,24 @@ const QUIZ_DATA = {
         "Giảm nghèo đa chiều từ >58% xuống dưới 3%",
         "Cơ đồ, tiềm lực, vị thế và uy tín quốc tế",
         "Bản lĩnh chính trị, tri thức số, sáng tạo khởi nghiệp, trách nhiệm cộng đồng"
+      ],
+      "selfCheckPrompts": [
+        {
+          "question": "Thời kỳ quá độ lên CNXH là gì và tại sao Việt Nam lựa chọn hình thức quá độ gián tiếp?",
+          "hint": "Cải biến toàn diện từ xã hội cũ sang mới. Việt Nam quá độ gián tiếp từ nước nông nghiệp lạc hậu bỏ qua TBCN, phù hợp quy luật phát triển rút ngắn."
+        },
+        {
+          "question": "Đặc điểm bao trùm của thời kỳ quá độ biểu hiện như thế nào trên 4 lĩnh vực kinh tế, chính trị, văn hóa, xã hội?",
+          "hint": "Sự đan xen đấu tranh giữa tàn dư cũ và nhân tố mới: kinh tế nhiều thành phần, chính trị pháp quyền XHCN, văn hóa Mác-Lênin chủ đạo, xã hội đa dạng giai cấp."
+        },
+        {
+          "question": "Nêu những con số ấn tượng chứng minh thành tựu kinh tế - xã hội của Việt Nam sau Đổi mới?",
+          "hint": "GDP vượt 430 tỷ USD, GDP/người >4.300 USD, xuất nhập khẩu >700 tỷ USD, nghèo đa chiều <3%, tuổi thọ 73.7 tuổi."
+        },
+        {
+          "question": "Sinh viên cần làm gì trên 4 mặt: tư tưởng, học tập, đạo đức và hành động thực tiễn?",
+          "hint": "Kiên định lý tưởng, làm chủ tri thức công nghệ số, rèn luyện đạo đức liêm chính, tham gia các phong trào tình nguyện vì cộng đồng."
+        }
       ],
       "contentSections": [
         {
@@ -1508,12 +1600,80 @@ const QUIZ_DATA = {
     {
       "id": 2,
       "title": "Sứ mệnh lịch sử của GCCN & Những biến đổi của GCCN Việt Nam hiện nay",
+      "shortTitle": "Sứ mệnh lịch sử GCCN",
+      "icon": "⚙️",
       "question": "2. Phân tích sứ mệnh lịch sử của giai cấp công nhân. Những biến đổi tích cực của giai cấp công nhân Việt Nam và sứ mệnh lịch sử của giai cấp công nhân Việt Nam hiện nay?",
       "tags": [
         "Giai cấp công nhân",
         "Sứ mệnh lịch sử",
         "Công nhân Việt Nam",
         "CNH - HĐH"
+      ],
+      "takeaway": "Sứ mệnh lịch sử của giai cấp công nhân là lãnh đạo nhân dân lao động xóa bỏ bóc lột TBCN, giải phóng giai cấp và nhân loại, xây dựng CNXH/CNCS. Công nhân Việt Nam hiện nay phát triển mạnh mẽ về lượng (>17 triệu người) và chất (xuất hiện công nhân tri thức), đóng góp >60% GDP, là lực lượng nòng cốt đi đầu trong CNH - HĐH và bảo vệ Đảng.",
+      "keyStats": [
+        {
+          "label": "Lực lượng công nhân",
+          "value": ">17 Triệu người",
+          "sub": "~15% dân số, 27% lao động xã hội"
+        },
+        {
+          "label": "Đóng góp GDP",
+          "value": ">60% GDP",
+          "sub": "Và hơn 70% ngân sách nhà nước"
+        },
+        {
+          "label": "Công nhân tri thức",
+          "value": "Tăng nhanh",
+          "sub": "Làm chủ AI, tự động hóa, bán dẫn"
+        },
+        {
+          "label": "Mục tiêu 2045",
+          "value": "Nước phát triển",
+          "sub": "Thu nhập cao, công nghiệp hiện đại"
+        }
+      ],
+      "mindmapNodes": [
+        {
+          "title": "1. Sứ mệnh lịch sử tổng quát",
+          "icon": "⚡",
+          "badge": "Mục tiêu tối thượng",
+          "points": [
+            "Tổng quát: xóa bỏ TBCN và áp bức bóc lột, giải phóng giai cấp và nhân loại, xây dựng CNXH/CNCS",
+            "Kinh tế: đại diện LLSX tiên tiến, xây dựng cơ sở vật chất kỹ thuật cho CNXH",
+            "Chính trị: lật đổ tư sản, thiết lập Nhà nước XHCN, mở rộng dân chủ cho nhân dân",
+            "Văn hóa: xác lập CN Mác-Lênin chủ đạo, xây dựng con người mới toàn diện"
+          ]
+        },
+        {
+          "title": "2. Điều kiện quy định sứ mệnh",
+          "icon": "🔍",
+          "badge": "Khách quan & Chủ quan",
+          "points": [
+            "Khách quan: địa vị kinh tế gắn với đại công nghiệp, bị bóc lột giá trị thặng dư trực tiếp; tính kỷ luật, cách mạng triệt để",
+            "Chủ quan: sự trưởng thành của GCCN; trong đó Đảng Cộng sản lãnh đạo là nhân tố quyết định nhất; liên minh công - nông"
+          ]
+        },
+        {
+          "title": "3. Biến đổi tích cực của GCCN VN",
+          "icon": "📈",
+          "badge": "Thực tiễn hiện nay",
+          "points": [
+            "Số lượng tăng nhanh (>17 triệu người), cơ cấu đa dạng ở mọi thành phần kinh tế (nhất là tư nhân, FDI)",
+            "Chất lượng nâng cao: xuất hiện 'công nhân tri thức' làm chủ công nghệ cao, tự động hóa, viễn thông",
+            "Tác phong công nghiệp, kỷ luật lao động thích ứng môi trường toàn cầu",
+            "Bản lĩnh chính trị vững vàng, tin tưởng vào Đảng, tổ chức Công đoàn đổi mới"
+          ]
+        },
+        {
+          "title": "4. Sứ mệnh của GCCN VN hiện nay",
+          "icon": "🇻🇳",
+          "badge": "Nhiệm vụ thời kỳ mới",
+          "points": [
+            "Kinh tế: đi đầu trong CNH-HĐH, kinh tế số, nâng cao năng suất đưa VN thành nước phát triển năm 2045",
+            "Chính trị: giữ vững bản chất công nhân của Đảng và Nhà nước, củng cố khối đại đoàn kết, bảo vệ nền tảng tư tưởng",
+            "Văn hóa: xây dựng văn hóa doanh nghiệp, nếp sống công nghiệp, giữ gìn bản sắc dân tộc"
+          ]
+        }
       ],
       "outline": [
         "1. Khái niệm và Nội dung sứ mệnh lịch sử của giai cấp công nhân (Kinh tế, Chính trị - Xã hội, Văn hóa - Tư tưởng).",
@@ -1528,6 +1688,24 @@ const QUIZ_DATA = {
         "Công nhân tri thức, công nhân số hóa, tự động hóa",
         "Đi đầu trong CNH - HĐH gắn với kinh tế tri thức",
         "Nòng cốt giữ vững bản chất giai cấp của Đảng và Nhà nước"
+      ],
+      "selfCheckPrompts": [
+        {
+          "question": "Sứ mệnh lịch sử của giai cấp công nhân gồm những nội dung cụ thể nào trên 3 lĩnh vực?",
+          "hint": "Kinh tế (phát triển LLSX, xác lập công hữu), Chính trị (giành chính quyền, thiết lập nhà nước dân chủ), Văn hóa (xác lập CN Mác-Lênin chủ đạo)."
+        },
+        {
+          "question": "Nhân tố chủ quan nào có ý nghĩa quyết định nhất đối với việc hoàn thành sứ mệnh của GCCN?",
+          "hint": "Sự ra đời và lãnh đạo của Đảng Cộng sản (đội tiền phong của GCCN) kết hợp với khối liên minh công - nông - trí thức."
+        },
+        {
+          "question": "Giai cấp công nhân Việt Nam hiện nay có những biến đổi tích cực nào về cơ cấu và chất lượng?",
+          "hint": "Quy mô >17 triệu, đóng góp >60% GDP; đa dạng hóa ở khu vực FDI và tư nhân; hình thành bộ phận công nhân tri thức công nghệ cao."
+        },
+        {
+          "question": "Sứ mệnh lịch sử của giai cấp công nhân Việt Nam trong giai đoạn hiện nay là gì?",
+          "hint": "Đi đầu CNH-HĐH, phát triển kinh tế tri thức hướng tới mục tiêu 2045; giữ vững bản chất công nhân của Đảng và Nhà nước pháp quyền."
+        }
       ],
       "contentSections": [
         {
@@ -1583,12 +1761,72 @@ const QUIZ_DATA = {
     {
       "id": 3,
       "title": "Đặc trưng Quốc gia – Dân tộc & Quan điểm của Đảng về vấn đề dân tộc",
+      "shortTitle": "Quốc gia – Dân tộc & Quan điểm Đảng",
+      "icon": "🏛️",
       "question": "3. Phân tích các đặc trưng của quốc gia – dân tộc và các quan điểm của Đảng về vấn đề dân tộc",
       "tags": [
         "Quốc gia - Dân tộc",
         "Đặc trưng dân tộc",
         "Đường lối của Đảng",
         "Bình đẳng dân tộc"
+      ],
+      "takeaway": "Quốc gia - Dân tộc gồm 5 đặc trưng: Lãnh thổ chung, Kinh tế thống nhất, Ngôn ngữ quốc gia chung, Văn hóa - tâm lý dân tộc chung, Nhà nước và pháp luật thống nhất. Đảng xác định vấn đề dân tộc có vị trí chiến lược cơ bản, lâu dài với nguyên tắc cốt lõi: 'Bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển', kiên quyết đập tan âm mưu chia rẽ dân tộc.",
+      "keyStats": [
+        {
+          "label": "5 Đặc trưng",
+          "value": "Lãnh thổ, Kinh tế, Ngôn ngữ, Văn hóa, Nhà nước",
+          "sub": "Chỉnh thể cộng đồng bền vững nhất"
+        },
+        {
+          "label": "Nguyên tắc cốt lõi",
+          "value": "Bình đẳng - Đoàn kết - Tôn trọng - Cùng phát triển",
+          "sub": "Kim chỉ nam công tác dân tộc của Đảng"
+        },
+        {
+          "label": "Chính sách ưu tiên",
+          "value": "Chương trình MTQG",
+          "sub": "Đầu tư hạ tầng, giáo dục vùng cao"
+        },
+        {
+          "label": "Bảo vệ an ninh",
+          "value": "Chống kích động ly khai",
+          "sub": "Lật tẩy âm mưu 'Nhà nước Đề Ga / Mông'"
+        }
+      ],
+      "mindmapNodes": [
+        {
+          "title": "1. Khái niệm Quốc gia - Dân tộc",
+          "icon": "📌",
+          "badge": "Cộng đồng bền vững",
+          "points": [
+            "Là hình thức cộng đồng người ổn định, bền vững nhất trong lịch sử",
+            "Hình thành trên cơ sở phát triển của CNTB hoặc do yêu cầu dựng nước & giữ nước chung (Việt Nam)"
+          ]
+        },
+        {
+          "title": "2. Năm đặc trưng cơ bản",
+          "icon": "⭐",
+          "badge": "5 Trụ cột quốc gia",
+          "points": [
+            "Lãnh thổ: ổn định, toàn vẹn (đất, trời, biển, đảo), chủ quyền thiêng liêng bất khả xâm phạm",
+            "Kinh tế: thị trường chung thống nhất, gắn kết chặt chẽ mọi vùng miền, xóa bỏ cát cứ",
+            "Ngôn ngữ: tiếng quốc gia chung (tiếng Việt), bảo tồn tiếng nói/chữ viết dân tộc thiểu số",
+            "Văn hóa - tâm lý: bản sắc văn hóa chung, lòng yêu nước nồng nàn, tinh thần cộng đồng",
+            "Nhà nước - pháp luật: quản lý xã hội bằng pháp luật thống nhất, đại diện quốc tế"
+          ]
+        },
+        {
+          "title": "3. Quan điểm chỉ đạo của Đảng",
+          "icon": "🇻🇳",
+          "badge": "Chủ trương chiến lược",
+          "points": [
+            "Vị trí: chiến lược cơ bản, lâu dài, đồng thời là nhiệm vụ cấp bách",
+            "Nguyên tắc cốt lõi: Bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển",
+            "Kinh tế: ưu tiên nguồn lực đầu tư hạ tầng, giảm nghèo bền vững vùng miền núi",
+            "Văn hóa - giáo dục: nâng cao dân trí, cử tuyển, đào tạo cán bộ dân tộc tại chỗ",
+            "An ninh: củng cố 'thế trận lòng dân', đập tan âm mưu lợi dụng dân tộc để ly khai"
+          ]
+        }
       ],
       "outline": [
         "1. Khái niệm Quốc gia – Dân tộc (Dân tộc theo nghĩa rộng).",
@@ -1605,6 +1843,24 @@ const QUIZ_DATA = {
         "Chiến lược cơ bản, lâu dài và cấp bách",
         "Bình đẳng, đoàn kết, tôn trọng, giúp nhau cùng phát triển",
         "Đập tan âm mưu lợi dụng vấn đề dân tộc để chia rẽ"
+      ],
+      "selfCheckPrompts": [
+        {
+          "question": "Nêu và giải thích 5 đặc trưng cơ bản của Quốc gia – Dân tộc?",
+          "hint": "Chung vùng lãnh thổ; chung phương thức sinh hoạt kinh tế; chung ngôn ngữ quốc gia; chung văn hóa và tâm lý; chung nhà nước và pháp luật."
+        },
+        {
+          "question": "Nguyên tắc chỉ đạo cốt lõi của Đảng về vấn đề dân tộc gồm những nội dung gì?",
+          "hint": "'Bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển'. Nghiêm cấm mọi hành vi kỳ thị, chia rẽ dân tộc."
+        },
+        {
+          "question": "Đảng và Nhà nước ta thực hiện chính sách phát triển KT-XH vùng đồng bào dân tộc thiểu số như thế nào?",
+          "hint": "Chương trình mục tiêu quốc gia, ưu tiên hạ tầng giao thông, điện, trường, trạm; chính sách cử tuyển và đào tạo cán bộ tại chỗ."
+        },
+        {
+          "question": "Tại sao công tác dân tộc luôn gắn chặt với nhiệm vụ bảo vệ an ninh - quốc phòng?",
+          "hint": "Địa bàn cư trú đồng bào thiểu số chiếm 3/4 diện tích, là phên dậu biên cương; các thế lực thù địch thường lợi dụng để kích động ly khai."
+        }
       ],
       "contentSections": [
         {
@@ -1656,12 +1912,74 @@ const QUIZ_DATA = {
     {
       "id": 4,
       "title": "Quan điểm Mác-Lênin về Dân tộc, Đặc điểm Dân tộc VN & Trách nhiệm sinh viên",
+      "shortTitle": "Mác-Lênin & Đại đoàn kết VN",
+      "icon": "🤝",
       "question": "4. Trình bày quan điểm của chủ nghĩa Mác-Lênin về vấn đề dân tộc (khái niệm, xu hướng). Liên hệ thực tiễn về đặc điểm của dân tộc Việt Nam. Là một sinh viên, anh (chị) nên làm gì để góp phần xây dựng khối đại đoàn kết dân tộc?",
       "tags": [
         "Quan điểm Mác - Lênin",
         "Hai xu hướng dân tộc",
         "Đặc điểm dân tộc Việt Nam",
         "Đại đoàn kết dân tộc"
+      ],
+      "takeaway": "Lênin chỉ ra 2 xu hướng khách quan: Tách ra thành lập quốc gia độc lập và Các dân tộc xích lại gần nhau, cùng Cương lĩnh dân tộc (Bình đẳng - Tự quyết - Liên hiệp công nhân). Việt Nam có 54 dân tộc anh em cư trú xen kẽ, địa bàn chiến lược xung yếu và truyền thống gắn bó keo sơn. Sinh viên có trách nhiệm tôn trọng đa dạng văn hóa, tình nguyện vùng cao và bảo vệ khối đoàn kết.",
+      "keyStats": [
+        {
+          "label": "54 Dân tộc",
+          "value": "Kinh (~85%) & 53 Dân tộc thiểu số (~15%)",
+          "sub": "Chung cội nguồn lịch sử Đồng bào"
+        },
+        {
+          "label": "Địa bàn cư trú",
+          "value": "3/4 Diện tích đất nước",
+          "sub": "Miền núi, biên giới, hải đảo hiểm yếu"
+        },
+        {
+          "label": "Hai xu hướng",
+          "value": "Tách ra & Xích lại gần nhau",
+          "sub": "Quy luật phát triển quan hệ dân tộc"
+        },
+        {
+          "label": "Cương lĩnh Lênin",
+          "value": "Bình đẳng - Tự quyết - Liên hiệp",
+          "sub": "Kim chỉ nam phong trào công nhân quốc tế"
+        }
+      ],
+      "mindmapNodes": [
+        {
+          "title": "1. Quan điểm Mác - Lênin",
+          "icon": "📚",
+          "badge": "Lý luận Lênin",
+          "points": [
+            "Khái niệm: Nghĩa rộng (Nation - Quốc gia) vs Nghĩa hẹp (Ethnie - Tộc người)",
+            "Xu hướng 1: Tách ra để thành lập quốc gia độc lập (thức tỉnh ý thức dân tộc)",
+            "Xu hướng 2: Các dân tộc liên hiệp lại, xích lại gần nhau (toàn cầu hóa)",
+            "Cương lĩnh Lênin: Các dân tộc bình đẳng - Được quyền tự quyết - Liên hiệp công nhân"
+          ]
+        },
+        {
+          "title": "2. Sáu đặc điểm dân tộc Việt Nam",
+          "icon": "🇻🇳",
+          "badge": "Thực tiễn đất nước",
+          "points": [
+            "1. Chênh lệch số lượng lớn (Kinh 85%, 53 dân tộc thiểu số 15%)",
+            "2. Cư trú xen kẽ nhau, không có vùng lãnh thổ biệt lập",
+            "3. Địa bàn cư trú thiểu số có vị trí chiến lược xung yếu (3/4 diện tích)",
+            "4. Trình độ phát triển KT-XH không đồng đều giữa các dân tộc",
+            "5. Bản sắc văn hóa phong phú, đa dạng ('thống nhất trong đa dạng')",
+            "6. Truyền thống đoàn kết keo sơn, gắn bó keo sơn hàng nghìn năm"
+          ]
+        },
+        {
+          "title": "3. Trách nhiệm sinh viên",
+          "icon": "🎓",
+          "badge": "Hành động thế hệ trẻ",
+          "points": [
+            "Nhận thức: thấu hiểu đại đoàn kết là cội nguồn sức mạnh dân tộc",
+            "Ứng xử: tôn trọng, hòa đồng, bình đẳng; loại bỏ định kiến vùng miền",
+            "Hành động: tình nguyện Mùa hè xanh, phổ cập kỹ năng số, chăm sóc sức khỏe",
+            "Cảnh giác mạng: không like/share tin chia rẽ, phản bác luận điệu thù địch"
+          ]
+        }
       ],
       "outline": [
         "1. Quan điểm của Chủ nghĩa Mác - Lênin về vấn đề dân tộc (Hai nghĩa của khái niệm, Hai xu hướng phát triển khách quan, Cương lĩnh dân tộc của Lênin).",
@@ -1677,6 +1995,24 @@ const QUIZ_DATA = {
         "Chênh lệch phát triển KT-XH, văn hóa thống nhất trong đa dạng",
         "Truyền thống yêu nước đoàn kết keo sơn",
         "Sinh viên: Tôn trọng đa dạng văn hóa, tình nguyện vùng cao, đấu tranh phản bác luận điệu chia rẽ"
+      ],
+      "selfCheckPrompts": [
+        {
+          "question": "Phân tích 2 xu hướng khách quan của sự phát triển quan hệ dân tộc theo V.I. Lênin?",
+          "hint": "Xu hướng tách ra thành lập quốc gia độc lập (giai đoạn đầu TBCN) và xu hướng xích lại gần nhau (khi LLSX phát triển, toàn cầu hóa)."
+        },
+        {
+          "question": "Nêu 3 nội dung trong Cương lĩnh dân tộc của V.I. Lênin?",
+          "hint": "'Các dân tộc hoàn toàn bình đẳng; Các dân tộc được quyền tự quyết; Liên hiệp công nhân tất cả các dân tộc'."
+        },
+        {
+          "question": "Dân tộc Việt Nam có 6 đặc điểm cơ bản nào trong thực tiễn?",
+          "hint": "Chênh lệch số lượng dân cư; cư trú xen kẽ; địa bàn xung yếu; trình độ phát triển không đều; văn hóa thống nhất trong đa dạng; truyền thống đoàn kết keo sơn."
+        },
+        {
+          "question": "Là sinh viên, bạn làm gì cụ thể để góp phần củng cố khối đại đoàn kết toàn dân tộc?",
+          "hint": "Tôn trọng bạn bè các dân tộc; tham gia tình nguyện vùng cao; phổ biến tri thức; kiên quyết đấu tranh chống luận điệu chia rẽ trên mạng."
+        }
       ],
       "contentSections": [
         {
@@ -1732,12 +2068,72 @@ const QUIZ_DATA = {
     {
       "id": 5,
       "title": "Gia đình: Khái niệm, Vị trí, Chức năng & Biến đổi Chức năng Tái sản xuất con người",
+      "shortTitle": "Gia đình & Tái sản xuất con người",
+      "icon": "👨‍👩‍👧‍👦",
       "question": "5. Khái niệm, vị trí, chức năng của gia đình? Liên hệ thực tiễn về biến đổi trong chức năng tái sản xuất con người của gia đình Việt Nam hiện nay.",
       "tags": [
         "Gia đình",
         "Chức năng gia đình",
         "Tái sản xuất con người",
         "Biến đổi gia đình Việt Nam"
+      ],
+      "takeaway": "Gia đình là tế bào xã hội, tổ ấm hạnh phúc và cầu nối cá nhân - xã hội với 5 chức năng cơ bản. Hiện nay chức năng tái sản xuất con người biến đổi sâu sắc: quy mô thu nhỏ (hạt nhân 1-2 con), mức sinh giảm sâu ở đô thị (TP.HCM 1.39 con), kết hôn muộn, chuyển từ 'số lượng' sang 'chất lượng con cái'. Thách thức lớn là già hóa dân số nhanh và mất cân bằng giới tính khi sinh.",
+      "keyStats": [
+        {
+          "label": "Mức sinh TP.HCM",
+          "value": "~1,39 Con/phụ nữ",
+          "sub": "Thấp hơn nhiều mức thay thế (2.1)"
+        },
+        {
+          "label": "Tỷ số giới tính sinh",
+          "value": "~112 Bé trai/100 bé gái",
+          "sub": "Mất cân bằng giới tính khi sinh"
+        },
+        {
+          "label": "Quy mô gia đình",
+          "value": "Hạt nhân 1 - 2 con",
+          "sub": "Thay thế gia đình tam, tứ đại đồng đường"
+        },
+        {
+          "label": "Nghị quyết 21-NQ/TW",
+          "value": "Dân số & Phát triển",
+          "sub": "Chính sách khuyến sinh thay thế"
+        }
+      ],
+      "mindmapNodes": [
+        {
+          "title": "1. Khái niệm, vị trí & chức năng",
+          "icon": "🏠",
+          "badge": "Nền tảng gia đình",
+          "points": [
+            "Khái niệm: dựa trên quan hệ hôn nhân, huyết thống và nuôi dưỡng",
+            "3 Vị trí: Tế bào của xã hội; Tổ ấm hạnh phúc cá nhân; Cầu nối cá nhân - xã hội",
+            "5 Chức năng: Tái sản xuất con người; Nuôi dưỡng giáo dục; Kinh tế - tiêu dùng; Thỏa mãn tâm sinh lý; Trao truyền văn hóa"
+          ]
+        },
+        {
+          "title": "2. Biến đổi chức năng tái sản xuất",
+          "icon": "🔄",
+          "badge": "Thực tiễn Việt Nam",
+          "points": [
+            "Quy mô gia đình thu nhỏ sang gia đình hạt nhân (1-2 con), mức sinh giảm sâu ở các đô thị lớn",
+            "Tuổi kết hôn và sinh con muộn hơn; xuất hiện xu hướng sống độc thân, DINK (không sinh con)",
+            "Mục đích sinh con thay đổi: từ 'cần sức lao động, nối dõi' sang 'tình yêu thương, chất lượng sống'",
+            "Chuyển từ số lượng sang chất lượng con cái (đầu tư giáo dục, dinh dưỡng, tâm lý toàn diện)",
+            "Tiến bộ y học: công nghệ hỗ trợ sinh sản IVF, sàng lọc gen trước sinh nâng cao chất lượng giống nòi"
+          ]
+        },
+        {
+          "title": "3. Thách thức & Giải pháp",
+          "icon": "⚠️",
+          "badge": "Định hướng chính sách",
+          "points": [
+            "Thách thức: tốc độ già hóa dân số nhanh hàng đầu thế giới ('chưa giàu đã già', thiếu hụt lao động tương lai)",
+            "Thách thức: mất cân bằng giới tính khi sinh (~112 trai / 100 gái) do lạm dụng chọn giới tính",
+            "Giải pháp Đảng: chuyển sang 'Dân số và Phát triển' (Nghị quyết 21-NQ/TW)",
+            "Giải pháp chính sách: khuyến sinh trước 35 tuổi, hỗ trợ tài chính, mở rộng nhà trẻ mầm non, bình đẳng giới"
+          ]
+        }
       ],
       "outline": [
         "1. Khái niệm gia đình và các mối quan hệ nền tảng (Hôn nhân, Huyết thống, Nuôi dưỡng).",
@@ -1755,6 +2151,24 @@ const QUIZ_DATA = {
         "Thách thức: Già hóa dân số nhanh, nguy cơ thiếu hụt lao động",
         "Mất cân bằng giới tính khi sinh (~112 bé trai/100 bé gái)",
         "Chính sách khuyến sinh thay thế, an sinh xã hội"
+      ],
+      "selfCheckPrompts": [
+        {
+          "question": "Gia đình có vị trí như thế nào trong xã hội và đâu là chức năng đặc thù chỉ riêng gia đình có?",
+          "hint": "Gia đình là tế bào xã hội, tổ ấm hạnh phúc, cầu nối cá nhân - xã hội. Chức năng đặc thù: Tái sản xuất ra con người."
+        },
+        {
+          "question": "Chức năng tái sản xuất con người của gia đình Việt Nam hiện nay biến đổi như thế nào về quy mô và quan niệm?",
+          "hint": "Thu nhỏ sang gia đình hạt nhân 1-2 con; mức sinh đô thị giảm sâu; chuyển từ 'sinh con để có lao động' sang 'chất lượng con cái'."
+        },
+        {
+          "question": "Sự biến đổi này đặt ra 2 thách thức lớn nào đối với sự phát triển bền vững của đất nước?",
+          "hint": "Tốc độ già hóa dân số quá nhanh (nguy cơ thiếu lao động tương lai) và mất cân bằng giới tính khi sinh (khoảng 112 trai / 100 gái)."
+        },
+        {
+          "question": "Đảng và Nhà nước đã ban hành định hướng chính sách gì trong Nghị quyết số 21-NQ/TW?",
+          "hint": "Chuyển từ 'Kế hoạch hóa gia đình' sang 'Dân số và Phát triển', khuyến khích sinh đủ 2 con trước 35 tuổi, hỗ trợ dịch vụ chăm sóc trẻ em."
+        }
       ],
       "contentSections": [
         {
