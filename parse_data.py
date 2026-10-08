@@ -836,9 +836,22 @@ for block in sa_blocks:
 
 print(f"Parsed {len(sa_list)} Short Answer questions.")
 
+# Load or include essay data if available
+try:
+    with open("d:/cnxh/quiz-data.js", "r", encoding="utf-8") as f:
+        existing_js = f.read()
+    if "const QUIZ_DATA = " in existing_js:
+        existing_obj = json.loads(existing_js.split("const QUIZ_DATA = ")[1].strip().rstrip(";"))
+        essay_list = existing_obj.get("essay", [])
+    else:
+        essay_list = []
+except Exception:
+    essay_list = []
+
 data_output = {
     "mcq": mcq_list,
-    "shortAnswer": sa_list
+    "shortAnswer": sa_list,
+    "essay": essay_list
 }
 
 # Check any errors

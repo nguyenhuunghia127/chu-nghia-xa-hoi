@@ -15,6 +15,7 @@
 
   let rawMcqList = [...QUIZ_DATA.mcq];
   let rawSaList = [...QUIZ_DATA.shortAnswer];
+  let rawEssayList = [...(QUIZ_DATA.essay || [])];
 
   let state = {
     mode: 'practice', // 'practice' | 'exam'
@@ -45,6 +46,13 @@
       review: new Set(JSON.parse(localStorage.getItem(STORAGE_KEY_FC_REVIEW) || '[]')),
       currentTypeInIndex: 0,
       filteredSaList: [...rawSaList]
+    },
+
+    // Essay state
+    essay: {
+      searchQuery: '',
+      filterTopic: 'all',
+      collapsedMap: {}
     }
   };
 
@@ -180,6 +188,19 @@
     modalTimeTaken: document.getElementById('modal-time-taken'),
     btnModalReview: document.getElementById('btn-modal-review'),
     btnModalClose: document.getElementById('btn-modal-close'),
+
+    // Essay
+    searchEssayInput: document.getElementById('search-essay-input'),
+    btnClearEssaySearch: document.getElementById('btn-clear-essay-search'),
+    filterEssayTopic: document.getElementById('filter-essay-topic'),
+    btnEssayExpandAll: document.getElementById('btn-essay-expand-all'),
+    btnEssayCollapseAll: document.getElementById('btn-essay-collapse-all'),
+    btnEssayPrint: document.getElementById('btn-essay-print'),
+    essayQuickNav: document.getElementById('essay-quick-nav'),
+    essayListContainer: document.getElementById('essay-list-container'),
+    essayCountBadge: document.getElementById('essay-count-badge'),
+    toastNotification: document.getElementById('toast-notification'),
+    toastMessage: document.getElementById('toast-message'),
 
     // Confetti
     confettiCanvas: document.getElementById('confetti-canvas')
@@ -862,6 +883,211 @@
     });
   }
 
+  // 17.1 TOAST NOTIFICATION
+  let toastTimer = null;
+  function showToast(msg) {
+    if (!dom.toastNotification) return;
+    dom.toastMessage.textContent = msg;
+    dom.toastNotification.classList.remove('hidden');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      dom.toastNotification.classList.add('hidden');
+    }, 2500);
+  }
+
+  // 17.2 ESSAY FUNCTIONS
+  function getFilteredEssayList() {
+    const q = state.essay.searchQuery.trim().toLowerCase();
+    const topic = state.essay.filterTopic;
+
+    return rawEssayList.filter(item => {
+      let matchesTopic = true;
+      if (topic !== 'all') {
+        matchesTopic = item.tags.some(t => t.toLowerCase().includes(topic.toLowerCase())) ||
+                       item.title.toLowerCase().includes(topic.toLowerCase());
+      }
+
+      let matchesSearch = true;
+      if (q) {
+        const inTitle = item.title.toLowerCase().includes(q);
+        const inQuestion = item.question.toLowerCase().includes(q);
+        const inTags = item.tags.some(t => t.toLowerCase().includes(q));
+        const inOutline = item.outline.some(o => o.toLowerCase().includes(q));
+        const inKeypoints = item.keyPoints.some(k => k.toLowerCase().includes(q));
+        const inSections = item.contentSections.some(s =>
+          s.heading.toLowerCase().includes(q) || s.body.some(b => b.toLowerCase().includes(q))
+        );
+        matchesSearch = inTitle || inQuestion || inTags || inOutline || inKeypoints || inSections;
+      }
+
+      return matchesTopic && matchesSearch;
+    });
+  }
+
+  function renderEssayQuickNav() {
+    if (!dom.essayQuickNav) return;
+    dom.essayQuickNav.innerHTML = '';
+
+    const allChip = document.createElement('button');
+    allChip.className = `essay-nav-chip ${state.essay.filterTopic === 'all' ? 'active' : ''}`;
+    allChip.innerHTML = `<span class="chip-num">★</span><span>Tất cả (5 câu)</span>`;
+    allChip.addEventListener('click', () => {
+      state.essay.filterTopic = 'all';
+      if (dom.filterEssayTopic) dom.filterEssayTopic.value = 'all';
+      playClickSound();
+      renderEssayQuickNav();
+      renderEssayList();
+    });
+    dom.essayQuickNav.appendChild(allChip);
+
+    rawEssayList.forEach(item => {
+      const chip = document.createElement('button');
+      const isActive = state.essay.filterTopic === item.tags[0];
+      chip.className = `essay-nav-chip ${isActive ? 'active' : ''}`;
+      chip.innerHTML = `<span class="chip-num">${item.id}</span><span>${item.tags[0]}</span>`;
+      chip.addEventListener('click', () => {
+        const el = document.getElementById(`essay-card-${item.id}`);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          if (el.classList.contains('collapsed')) {
+            el.classList.remove('collapsed');
+            state.essay.collapsedMap[item.id] = false;
+          }
+        }
+        playClickSound();
+      });
+      dom.essayQuickNav.appendChild(chip);
+    });
+  }
+
+  function renderEssayList() {
+    if (!dom.essayListContainer) return;
+    dom.essayListContainer.innerHTML = '';
+    const filtered = getFilteredEssayList();
+
+    if (filtered.length === 0) {
+      dom.essayListContainer.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-icon">🔍</div>
+          <h4>Không tìm thấy câu hỏi tự luận phù hợp</h4>
+          <p>Hãy thử tìm bằng từ khóa khác hoặc chọn "Tất cả chuyên đề".</p>
+        </div>
+      `;
+      return;
+    }
+
+    filtered.forEach(item => {
+      const isCollapsed = state.essay.collapsedMap[item.id] === true;
+      const card = document.createElement('div');
+      card.className = `essay-card ${isCollapsed ? 'collapsed' : ''}`;
+      card.id = `essay-card-${item.id}`;
+
+      const tagsHtml = item.tags.map(t => `<span class="tag-topic">${t}</span>`).join('');
+      const outlineHtml = item.outline.map(o => `<li>${o}</li>`).join('');
+      const keypointsHtml = item.keyPoints.map(k => `<span class="keypoint-badge">✦ ${k}</span>`).join('');
+
+      const sectionsHtml = item.contentSections.map(sec => `
+        <div class="essay-section-block">
+          <div class="essay-section-heading">🏛️ ${sec.heading}</div>
+          <div class="essay-paragraphs">
+            ${sec.body.map(p => `<p>${p}</p>`).join('')}
+          </div>
+        </div>
+      `).join('');
+
+      card.innerHTML = `
+        <div class="essay-card-header" data-id="${item.id}">
+          <div class="essay-header-top">
+            <div class="essay-tags-group">
+              <span class="tag-q-num">CÂU ${item.id}</span>
+              ${tagsHtml}
+            </div>
+            <div class="essay-header-buttons">
+              <button class="btn-copy-essay" data-id="${item.id}" title="Sao chép toàn bộ bài giải câu này">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                <span>Sao chép bài giải</span>
+              </button>
+              <button class="btn-toggle-expand" data-id="${item.id}" title="Mở rộng / Thu gọn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </div>
+          </div>
+          <h3 class="essay-question-title">${item.title}</h3>
+          <div class="essay-prompt-callout">
+            <strong>Đề bài chi tiết:</strong> ${item.question}
+          </div>
+        </div>
+
+        <div class="essay-card-body">
+          <div class="essay-meta-boxes">
+            <div class="essay-outline-box">
+              <div class="essay-box-title">📌 Dàn ý ghi nhớ nhanh</div>
+              <ul class="essay-outline-list">
+                ${outlineHtml}
+              </ul>
+            </div>
+            <div class="essay-keypoints-box">
+              <div class="essay-box-title">💡 Từ khóa ăn điểm tối đa</div>
+              <div class="keypoints-chips">
+                ${keypointsHtml}
+              </div>
+            </div>
+          </div>
+
+          <div class="essay-sections-container">
+            ${sectionsHtml}
+          </div>
+        </div>
+      `;
+
+      // Header click toggles collapse
+      const header = card.querySelector('.essay-card-header');
+      header.addEventListener('click', (e) => {
+        if (e.target.closest('.btn-copy-essay')) return;
+        const willCollapse = !card.classList.contains('collapsed');
+        card.classList.toggle('collapsed', willCollapse);
+        state.essay.collapsedMap[item.id] = willCollapse;
+        playClickSound();
+      });
+
+      // Copy button
+      const copyBtn = card.querySelector('.btn-copy-essay');
+      copyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        copyEssayText(item);
+      });
+
+      dom.essayListContainer.appendChild(card);
+    });
+  }
+
+  function copyEssayText(item) {
+    let text = `PHẦN III: TỰ LUẬN - CÂU ${item.id}\n`;
+    text += `ĐỀ BÀI: ${item.question}\n\n`;
+    text += `========================================\n`;
+    text += `I. DÀN Ý TỔNG QUAN:\n`;
+    item.outline.forEach(o => { text += `• ${o}\n`; });
+    text += `\nII. TỪ KHÓA TRỌNG TÂM:\n`;
+    text += item.keyPoints.join(" | ") + `\n\n`;
+    text += `========================================\n`;
+    text += `III. BÀI GIẢI CHI TIẾT:\n\n`;
+
+    item.contentSections.forEach(sec => {
+      text += `${sec.heading.toUpperCase()}\n`;
+      sec.body.forEach(b => {
+        const cleanP = b.replace(/<[^>]+>/g, '');
+        text += `${cleanP}\n\n`;
+      });
+    });
+
+    navigator.clipboard.writeText(text).then(() => {
+      playCorrectSound();
+      showToast(`Đã sao chép toàn bộ bài giải Câu ${item.id} vào bộ nhớ tạm!`);
+    }).catch(() => {
+      showToast(`Không thể tự động sao chép. Hãy chọn văn bản và nhấn Ctrl+C!`);
+    });
+  }
+
   // 18. TAB SWITCHING
   function switchTab(tabId) {
     dom.tabButtons.forEach(btn => {
@@ -877,6 +1103,9 @@
       renderFlashcard();
       renderTypeIn();
       renderSaListAll();
+    } else if (tabId === 'tab-essay') {
+      renderEssayQuickNav();
+      renderEssayList();
     } else if (tabId === 'tab-stats') {
       updateBadges();
     }
@@ -1216,6 +1445,67 @@
       state.currentMcqIndex = 0;
       renderCurrentMcq();
     });
+
+    // Essay event listeners
+    if (dom.searchEssayInput) {
+      dom.searchEssayInput.addEventListener('input', (e) => {
+        state.essay.searchQuery = e.target.value;
+        if (dom.btnClearEssaySearch) {
+          dom.btnClearEssaySearch.classList.toggle('hidden', !state.essay.searchQuery);
+        }
+        renderEssayList();
+      });
+    }
+
+    if (dom.btnClearEssaySearch) {
+      dom.btnClearEssaySearch.addEventListener('click', () => {
+        dom.searchEssayInput.value = '';
+        state.essay.searchQuery = '';
+        dom.btnClearEssaySearch.classList.add('hidden');
+        renderEssayList();
+      });
+    }
+
+    if (dom.filterEssayTopic) {
+      dom.filterEssayTopic.addEventListener('change', (e) => {
+        state.essay.filterTopic = e.target.value;
+        playClickSound();
+        renderEssayQuickNav();
+        renderEssayList();
+      });
+    }
+
+    if (dom.btnEssayExpandAll) {
+      dom.btnEssayExpandAll.addEventListener('click', () => {
+        rawEssayList.forEach(item => {
+          state.essay.collapsedMap[item.id] = false;
+        });
+        playClickSound();
+        renderEssayList();
+      });
+    }
+
+    if (dom.btnEssayCollapseAll) {
+      dom.btnEssayCollapseAll.addEventListener('click', () => {
+        rawEssayList.forEach(item => {
+          state.essay.collapsedMap[item.id] = true;
+        });
+        playClickSound();
+        renderEssayList();
+      });
+    }
+
+    if (dom.btnEssayPrint) {
+      dom.btnEssayPrint.addEventListener('click', () => {
+        playClickSound();
+        // Ensure all cards are expanded before printing
+        rawEssayList.forEach(item => {
+          state.essay.collapsedMap[item.id] = false;
+        });
+        renderEssayList();
+        setTimeout(() => window.print(), 200);
+      });
+    }
   }
 
   // 22. INITIALIZATION
@@ -1226,6 +1516,8 @@
     renderFlashcard();
     renderTypeIn();
     renderSaListAll();
+    renderEssayQuickNav();
+    renderEssayList();
     updateBadges();
     initEventListeners();
     initKeyboardShortcuts();

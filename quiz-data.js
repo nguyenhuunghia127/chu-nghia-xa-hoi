@@ -1413,5 +1413,402 @@ const QUIZ_DATA = {
       "question": "Những điều kiện chủ quan để giai cấp công nhân thực hiện thành công sứ mệnh lịch sử xóa bỏ CNTB và xây dựng Chủ nghĩa cộng sản văn minh?",
       "answer": "Sự phát triển của bản thân giai cấp công nhân (số lượng và chất lượng); đặc biệt quan trọng nhất là phải có Đảng Cộng sản lãnh đạo và xây dựng được khối liên minh giai cấp vững chắc."
     }
+  ],
+  "essay": [
+    {
+      "id": 1,
+      "title": "Thời kỳ quá độ lên CNXH, Thành tựu KT-XH Việt Nam & Trách nhiệm sinh viên",
+      "question": "1. Đặc điểm của thời kỳ quá độ lên Chủ nghĩa xã hội? Phân tích một số thành tựu phát triển kinh tế - xã hội của Việt Nam trong thời kỳ quá độ lên Chủ nghĩa xã hội. Là sinh viên, anh (chị) phải làm gì để góp phần xây dựng và phát triển đất nước?",
+      "tags": [
+        "Thời kỳ quá độ",
+        "Kinh tế - Xã hội Việt Nam",
+        "Đổi mới",
+        "Trách nhiệm sinh viên"
+      ],
+      "outline": [
+        "1. Khái niệm và tính tất yếu của thời kỳ quá độ lên CNXH (Trực tiếp & Gián tiếp).",
+        "2. Đặc điểm cơ bản của thời kỳ quá độ (Kinh tế, Chính trị, Tư tưởng - Văn hóa, Xã hội).",
+        "3. Phân tích thành tựu KT-XH nổi bật của Việt Nam sau gần 40 năm Đổi mới (Kinh tế, Giảm nghèo, Đời sống, Vị thế quốc tế).",
+        "4. Trách nhiệm, nghĩa vụ và hành động thiết thực của sinh viên đối với sự nghiệp xây dựng đất nước."
+      ],
+      "keyPoints": [
+        "Tồn tại đan xen và đấu tranh giữa tàn dư cũ và nhân tố mới",
+        "Kinh tế nhiều thành phần, định hướng XHCN",
+        "Quá độ gián tiếp bỏ qua chế độ TBCN",
+        "GDP vượt 430 tỷ USD, Top 35 thế giới, Top 4 ASEAN",
+        "Giảm nghèo đa chiều từ >58% xuống dưới 3%",
+        "Cơ đồ, tiềm lực, vị thế và uy tín quốc tế",
+        "Bản lĩnh chính trị, tri thức số, sáng tạo khởi nghiệp, trách nhiệm cộng đồng"
+      ],
+      "contentSections": [
+        {
+          "heading": "I. Khái niệm và tính tất yếu của thời kỳ quá độ lên CNXH",
+          "body": [
+            "<strong>1. Khái niệm:</strong> Thời kỳ quá độ lên CNXH là thời kỳ cải biến cách mạng sâu sắc, toàn diện và triệt để từ xã hội cũ (TBCN hoặc tiền TBCN) sang xã hội mới XHCN. Thời kỳ này bắt đầu từ khi giai cấp công nhân và nhân dân lao động giành được chính quyền cho đến khi xây dựng thành công cơ sở vật chất - kỹ thuật và hoàn thiện các quan hệ xã hội cơ bản của CNXH.",
+            "<strong>2. Tính tất yếu:</strong> Bất kỳ sự chuyển biến từ một hình thái kinh tế - xã hội này sang một hình thái khác đều cần một thời kỳ lịch sử nhất định. Đối với CNXH - một xã hội hoàn toàn mới về chất, thủ tiêu chế độ bóc lột - thì thời kỳ quá độ càng là một tất yếu khách quan.",
+            "<strong>3. Hai hình thức quá độ:</strong>",
+            "• <em>Quá độ trực tiếp:</em> Diễn ra từ những nước tư bản chủ nghĩa phát triển cao tiến thẳng lên CNXH (như dự báo ban đầu của C. Mác và Ph. Ăngghen).",
+            "• <em>Quá độ gián tiếp:</em> Diễn ra ở những nước tiền tư bản hoặc tư bản chủ nghĩa phát triển ở trình độ trung bình - thấp, nông nghiệp lạc hậu, bỏ qua chế độ TBCN (như trường hợp của Việt Nam và các nước XHCN hiện nay theo luận điểm của V.I. Lênin)."
+          ]
+        },
+        {
+          "heading": "II. Các đặc điểm cơ bản của thời kỳ quá độ lên CNXH",
+          "body": [
+            "<strong>Đặc điểm bao trùm, xuyên suốt:</strong> Là sự <em>tồn tại đan xen, đan cài và đấu tranh quyết liệt</em> giữa những tàn dư, yếu tố của xã hội cũ với những mầm mống, nhân tố mới sơ khai của CNXH trên mọi phương diện của đời sống xã hội:",
+            "<strong>1. Trên lĩnh vực kinh tế:</strong>",
+            "• Tồn tại nền kinh tế nhiều thành phần với đa dạng hình thức sở hữu (sở hữu toàn dân, sở hữu tập thể, sở hữu tư nhân, sở hữu có vốn đầu tư nước ngoài...).",
+            "• Tồn tại nhiều hình thức phân phối, trong đó <em>phân phối theo kết quả lao động</em> và hiệu quả kinh tế là chủ đạo, kết hợp với phân phối theo mức đóng góp vốn, công nghệ và phân phối qua hệ thống an sinh, phúc lợi xã hội.",
+            "• Vận hành nền kinh tế thị trường định hướng XHCN, phát triển mạnh mẽ lực lượng sản xuất gắn liền với xây dựng quan hệ sản xuất tiến bộ.",
+            "<strong>2. Trên lĩnh vực chính trị:</strong>",
+            "• Thiết lập, củng cố và hoàn thiện Nhà nước pháp quyền XHCN mang bản chất giai cấp công nhân, do Đảng Cộng sản lãnh đạo, phục vụ lợi ích của nhân dân lao động.",
+            "• Tăng cường củng cố khối liên minh giai cấp Công nhân - Nông dân - Đội ngũ trí thức.",
+            "• Cuộc đấu tranh giai cấp vẫn tiếp tục diễn ra trong điều kiện mới: đấu tranh chống các thế lực thù địch thực hiện chiến lược 'diễn biến hòa bình', bạo loạn lật đổ; chống tệ quan liêu, tham nhũng, lãng phí và nguy cơ 'tự diễn biến', 'tự chuyển hóa'.",
+            "<strong>3. Trên lĩnh vực tư tưởng - văn hóa:</strong>",
+            "• Tồn tại nhiều tư tưởng, ý thức hệ và quan điểm khác nhau; hệ tư tưởng Mác - Lênin và tư tưởng Hồ Chí Minh giữ vai trò chủ đạo, định hướng đời sống tinh thần xã hội.",
+            "• Diễn ra cuộc đấu tranh giữa tư tưởng tiến bộ xã hội chủ nghĩa với tàn dư tư tưởng phong kiến, lối sống tư sản, chủ nghĩa cá nhân thực dụng và các hủ tục lạc hậu.",
+            "• Xây dựng nền văn hóa tiên tiến, đậm đà bản sắc dân tộc; tiếp thu có chọn lọc tinh hoa văn hóa nhân loại.",
+            "<strong>4. Trên lĩnh vực xã hội:</strong>",
+            "• Cơ cấu xã hội - giai cấp phong phú, đa dạng và phức tạp (gồm công nhân, nông dân, trí thức, đội ngũ doanh nhân, tiểu thương...).",
+            "• Các giai cấp, tầng lớp vừa hợp tác chặt chẽ vừa có sự khác biệt về lợi ích kinh tế cụ thể; còn tồn tại khoảng cách giàu nghèo và bất bình đẳng do quy luật kinh tế thị trường tác động."
+          ]
+        },
+        {
+          "heading": "III. Phân tích một số thành tựu phát triển kinh tế - xã hội của Việt Nam trong thời kỳ quá độ",
+          "body": [
+            "Trải qua gần 40 năm thực hiện công cuộc Đổi mới (từ 1986 đến nay), Việt Nam từ một nước nghèo nàn, khủng hoảng kinh tế - xã hội nghiêm trọng đã vươn lên đạt được những thành tựu to lớn, có ý nghĩa lịch sử:",
+            "<strong>1. Về phát triển kinh tế:</strong>",
+            "• <em>Quy mô nền kinh tế tăng vọt:</em> Từ quy mô GDP chỉ khoảng vài tỷ USD vào năm 1986 với lạm phát phi mã lên tới 774%, đến năm 2023 - 2024 quy mô GDP của Việt Nam đã vượt <strong>430 tỷ USD</strong>, đứng thứ 35 trên thế giới và thuộc Top 4 khu vực ASEAN. GDP bình quân đầu người đạt trên <strong>4.300 USD/năm</strong>, chính thức đưa Việt Nam thoát khỏi nhóm nước nghèo để trở thành quốc gia có thu nhập trung bình.",
+            "• <em>Chuyển dịch cơ cấu kinh tế theo hướng hiện đại:</em> Tỷ trọng công nghiệp - xây dựng và dịch vụ chiếm trên 85% GDP, tỷ trọng nông nghiệp giảm xuống dưới 12% nhưng phát triển theo hướng nông nghiệp công nghệ cao, nông nghiệp sinh thái. Việt Nam trở thành một trong những quốc gia xuất khẩu gạo, cà phê, hạt điều, thủy sản hàng đầu thế giới, đảm bảo vững chắc an ninh lương thực quốc gia.",
+            "• <em>Hội nhập kinh tế quốc tế sâu rộng:</em> Thiết lập quan hệ ngoại giao với 193 quốc gia, ký kết và thực thi 16 Hiệp định Thương mại tự do (FTA) thế hệ mới (như CPTPP, EVFTA, RCEP...). Tổng kim ngạch xuất nhập khẩu vượt mốc <strong>700 tỷ USD</strong>, đưa Việt Nam vào Top 20 quốc gia có quy mô thương mại quốc tế lớn nhất toàn cầu. Đồng thời, Việt Nam là điểm đến hấp dẫn thu hút vốn FDI hàng đầu khu vực.",
+            "<strong>2. Về phát triển xã hội và con người:</strong>",
+            "• <em>Kỳ tích xóa đói giảm nghèo:</em> Tỷ lệ hộ nghèo đa chiều giảm ngoạn mục từ trên 58% (năm 1993) xuống còn <strong>dưới 3%</strong> hiện nay. Việt Nam được Liên Hợp Quốc vinh danh là một trong những điểm sáng toàn cầu về thực hiện Mục tiêu Phát triển Thiên niên kỷ (MDGs) và Mục tiêu Phát triển Bền vững (SDGs).",
+            "• <em>Y tế, giáo dục và chất lượng cuộc sống không ngừng nâng cao:</em> Hoàn thành phổ cập giáo dục mầm non, tiểu học và THCS; tỷ lệ biết chữ đạt trên 97%; tuổi thọ trung bình của người dân tăng từ 65 tuổi (1990) lên <strong>73,7 tuổi</strong> (2023); diện bao phủ bảo hiểm y tế toàn dân đạt trên 93%.",
+            "• <em>Chính trị - xã hội ổn định, vị thế quốc tế nâng cao:</em> Môi trường hòa bình, ổn định chính trị được giữ vững vững chắc; quốc phòng - an ninh được củng cố. Như Đại hội XIII của Đảng và Cố Tổng Bí thư Nguyễn Phú Trọng đã khẳng định: <em>'Đất nước ta chưa bao giờ có được cơ đồ, tiềm lực, vị thế và uy tín quốc tế như ngày nay'</em>."
+          ]
+        },
+        {
+          "heading": "IV. Trách nhiệm của sinh viên góp phần xây dựng và phát triển đất nước",
+          "body": [
+            "Là thế hệ trí thức trẻ tương lai, sinh viên đóng vai trò rường cột trong sự nghiệp công nghiệp hóa, hiện đại hóa và hội nhập quốc tế. Mỗi sinh viên cần thực hiện tốt các nhiệm vụ sau:",
+            "<strong>1. Về lập trường tư tưởng và bản lĩnh chính trị:</strong>",
+            "• Kiên định mục tiêu độc lập dân tộc gắn liền với Chủ nghĩa xã hội; chủ động học tập, nghiên cứu và nắm vững Chủ nghĩa Mác - Lênin, Tư tưởng Hồ Chí Minh, đường lối, chủ trương của Đảng.",
+            "• Nâng cao cảnh giác cách mạng, rèn luyện sức 'đề kháng' chính trị vững vàng; tích cực tham gia đấu tranh phản bác các quan điểm sai trái, luận điệu thù địch, tin giả trên không gian mạng.",
+            "<strong>2. Về học tập, nghiên cứu khoa học và phát triển năng lực:</strong>",
+            "• Xác định động cơ học tập đúng đắn; nỗ lực làm chủ tri thức chuyên ngành, gắn lý thuyết với thực hành.",
+            "• Tích cực trau dồi các kỹ năng cốt lõi của thời đại số: ngoại ngữ, công nghệ thông tin, kỹ năng làm việc nhóm, tư duy phản biện, kỹ năng giải quyết vấn đề phức tạp.",
+            "• Tham gia nghiên cứu khoa học, đổi mới sáng tạo, nuôi dưỡng tinh thần khởi nghiệp (startup), sẵn sàng trở thành nguồn nhân lực chất lượng cao phục vụ nền kinh tế tri thức.",
+            "<strong>3. Về đạo đức, lối sống và trách nhiệm cộng đồng:</strong>",
+            "• Rèn luyện phẩm chất đạo đức cách mạng: Cần, kiệm, liêm, chính; sống có hoài bão, lý tưởng cao đẹp; thượng tôn pháp luật và giữ gìn nếp sống văn minh đô thị.",
+            "• Tích cực tham gia các phong trào xung kích, tình nguyện vì cộng đồng như: 'Mùa hè xanh', 'Tiếp sức mùa thi', hiến máu nhân đạo, bảo vệ môi trường, hỗ trợ đồng bào vùng sâu vùng xa chịu thiên tai bão lũ.",
+            "• Giữ gìn và phát huy bản sắc văn hóa dân tộc; tự hào quảng bá hình ảnh đất nước, con người Việt Nam thân thiện, năng động, văn minh tới bạn bè quốc tế."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Sứ mệnh lịch sử của GCCN & Những biến đổi của GCCN Việt Nam hiện nay",
+      "question": "2. Phân tích sứ mệnh lịch sử của giai cấp công nhân. Những biến đổi tích cực của giai cấp công nhân Việt Nam và sứ mệnh lịch sử của giai cấp công nhân Việt Nam hiện nay?",
+      "tags": [
+        "Giai cấp công nhân",
+        "Sứ mệnh lịch sử",
+        "Công nhân Việt Nam",
+        "CNH - HĐH"
+      ],
+      "outline": [
+        "1. Khái niệm và Nội dung sứ mệnh lịch sử của giai cấp công nhân (Kinh tế, Chính trị - Xã hội, Văn hóa - Tư tưởng).",
+        "2. Điều kiện khách quan và nhân tố chủ quan quy định sứ mệnh lịch sử của GCCN.",
+        "3. Những biến đổi tích cực của giai cấp công nhân Việt Nam hiện nay (Số lượng, Cơ cấu, Trình độ, Tác phong công nghiệp).",
+        "4. Sứ mệnh lịch sử của giai cấp công nhân Việt Nam trong thời kỳ mới."
+      ],
+      "keyPoints": [
+        "Giải phóng giai cấp, giải phóng nhân dân lao động và toàn thể nhân loại",
+        "Đại biểu cho LLSX tiên tiến, phương thức sản xuất hiện đại",
+        "Đảng Cộng sản - nhân tố chủ quan quyết định nhất",
+        "Công nhân tri thức, công nhân số hóa, tự động hóa",
+        "Đi đầu trong CNH - HĐH gắn với kinh tế tri thức",
+        "Nòng cốt giữ vững bản chất giai cấp của Đảng và Nhà nước"
+      ],
+      "contentSections": [
+        {
+          "heading": "I. Phân tích sứ mệnh lịch sử của giai cấp công nhân",
+          "body": [
+            "<strong>1. Khái niệm:</strong> Sứ mệnh lịch sử tổng quát của giai cấp công nhân là lãnh đạo toàn thể nhân dân lao động đấu tranh xóa bỏ chế độ tư bản chủ nghĩa, xóa bỏ chế độ người bóc lột người, giải phóng giai cấp công nhân, nhân dân lao động và toàn thể nhân loại khỏi mọi áp bức, bóc lột, bất công, xây dựng thành công xã hội xã hội chủ nghĩa và cộng sản chủ nghĩa văn minh.",
+            "<strong>2. Nội dung sứ mệnh lịch sử trên các lĩnh vực cụ thể:</strong>",
+            "• <em>Nội dung kinh tế:</em> Giai cấp công nhân là lực lượng sản xuất cơ bản, trực tiếp nhất, đại diện cho phương thức sản xuất tiên tiến mang tính xã hội hóa cao. Sứ mệnh của họ là phá vỡ quan hệ sản xuất tư bản chủ nghĩa chật hẹp, xác lập quan hệ sản xuất mới dựa trên chế độ công hữu về tư liệu sản xuất chủ yếu, đóng vai trò chủ thể thúc đẩy lực lượng sản xuất phát triển tạo nền tảng vật chất kỹ thuật vững chắc cho CNXH.",
+            "• <em>Nội dung chính trị - xã hội:</em> Giai cấp công nhân thông qua đội tiền phong là Đảng Cộng sản lãnh đạo nhân dân lao động đứng lên lật đổ ách thống trị của giai cấp tư sản, giành lấy chính quyền nhà nước, thiết lập Nhà nước chuyên chính vô sản / Nhà nước pháp quyền XHCN. Từ đó, xây dựng nền dân chủ xã hội chủ nghĩa, bảo đảm quyền làm chủ thực sự của nhân dân lao động.",
+            "• <em>Nội dung văn hóa - tư tưởng:</em> Giai cấp công nhân tiến hành cuộc cách mạng trên lĩnh vực tinh thần: đấu tranh loại bỏ hệ tư tưởng tư sản và các tàn dư lạc hậu, phản động; xác lập hệ tư tưởng của giai cấp công nhân (Chủ nghĩa Mác - Lênin) giữ vị trí chủ đạo trong đời sống tinh thần xã hội; xây dựng nền văn hóa mới và con người mới XHCN phát triển toàn diện.",
+            "<strong>3. Điều kiện quy định sứ mệnh lịch sử của GCCN:</strong>",
+            "• <em>Điều kiện khách quan:</em> Do địa vị kinh tế - xã hội (là con đẻ của nền đại công nghiệp, đại diện cho LLSX tiến bộ nhất, không có tư liệu sản xuất nên bị bóc lột giá trị thặng dư trực tiếp) và đặc điểm chính trị - xã hội (tính tổ chức, kỷ luật cao, tinh thần cách mạng triệt để, bản chất quốc tế chân chính).",
+            "• <em>Điều kiện chủ quan:</em> Sự phát triển về số lượng và chất lượng của bản thân giai cấp công nhân; trong đó <strong>sự ra đời và lãnh đạo của Đảng Cộng sản</strong> là nhân tố chủ quan quan trọng nhất, có ý nghĩa quyết định; đồng thời phải xây dựng được khối liên minh giai cấp vững chắc với nông dân và các tầng lớp lao động khác."
+          ]
+        },
+        {
+          "heading": "II. Những biến đổi tích cực của giai cấp công nhân Việt Nam hiện nay",
+          "body": [
+            "Dưới tác động của sự nghiệp Đổi mới, đẩy mạnh công nghiệp hóa, hiện đại hóa và hội nhập quốc tế, giai cấp công nhân Việt Nam đã có những bước chuyển biến mạnh mẽ, tích cực:",
+            "<strong>1. Tăng nhanh về số lượng và đa dạng hóa cơ cấu:</strong>",
+            "• Giai cấp công nhân Việt Nam hiện có trên 17 triệu người, chiếm khoảng 15% dân số và hơn 27% lực lượng lao động xã hội, nhưng đóng góp hơn <strong>60% tổng sản phẩm quốc nội (GDP)</strong> và trên 70% ngân sách nhà nước.",
+            "• Cơ cấu công nhân phát triển đa dạng theo mọi thành phần kinh tế: kinh tế nhà nước, kinh tế tư nhân và khu vực có vốn đầu tư nước ngoài (FDI) - trong đó lực lượng công nhân trong khu vực tư nhân và FDI tăng trưởng nhanh nhất.",
+            "<strong>2. Trình độ học vấn, chuyên môn và kỹ năng tay nghề nâng cao rõ rệt:</strong>",
+            "• Tỷ lệ công nhân qua đào tạo kỹ thuật, công nghệ ngày càng tăng cao. Đã hình thành một bộ phận đông đảo <em>'công nhân tri thức'</em>, công nhân công nghệ cao làm chủ các dây chuyền tự động hóa, công nghệ thông tin, viễn thông, cơ khí chính xác, công nghiệp bán dẫn.",
+            "• Khả năng tiếp cận, ứng dụng tiến bộ khoa học kỹ thuật và chuyển đổi số được nâng lên một bước mới.",
+            "<strong>3. Tác phong công nghiệp và kỷ luật lao động tiến bộ vượt bậc:</strong>",
+            "• Rèn luyện được ý thức tổ chức kỷ luật, tác phong công nghiệp chuyên nghiệp, đáp ứng môi trường làm việc khắt khe của các tập đoàn đa quốc gia và chuỗi cung ứng toàn cầu.",
+            "• Tinh thần năng động, sáng tạo, cải tiến kỹ thuật, nâng cao năng suất lao động được khơi dậy mạnh mẽ.",
+            "<strong>4. Bản lĩnh chính trị vững vàng, phát huy vai trò làm chủ:</strong>",
+            "• Tuyệt đại đa số công nhân tin tưởng vào sự lãnh đạo của Đảng Cộng sản Việt Nam và con đường đi lên CNXH; giữ vai trò nòng cốt bảo đảm an ninh chính trị, trật tự xã hội tại các khu công nghiệp.",
+            "• Vai trò của tổ chức Công đoàn ngày càng được đổi mới theo hướng thực chất, đại diện bảo vệ quyền và lợi ích hợp pháp, chính đáng, chăm lo đời sống vật chất và tinh thần cho người lao động."
+          ]
+        },
+        {
+          "heading": "III. Sứ mệnh lịch sử của giai cấp công nhân Việt Nam hiện nay",
+          "body": [
+            "Nghị quyết số 20-NQ/TW của Ban Chấp hành Trung ương Đảng (khóa X) và Văn kiện Đại hội XIII của Đảng đã xác định rõ sứ mệnh của GCCN Việt Nam trong thời kỳ mới:",
+            "<strong>1. Trên lĩnh vực kinh tế:</strong>",
+            "• Là lực lượng đi đầu, nòng cốt trong sự nghiệp đẩy mạnh CNH, HĐH đất nước gắn với phát triển kinh tế tri thức, kinh tế số và kinh tế xanh.",
+            "• Giữ vai trò chủ đạo trong sản xuất ra của cải vật chất chất lượng cao, nâng cao năng suất lao động, hiệu quả và sức cạnh tranh của nền kinh tế Việt Nam trên trường quốc tế, hướng tới mục tiêu đưa Việt Nam trở thành nước phát triển có thu nhập cao vào năm 2045.",
+            "<strong>2. Trên lĩnh vực chính trị - xã hội:</strong>",
+            "• Giữ vững và tăng cường bản chất giai cấp công nhân của Đảng và Nhà nước pháp quyền XHCN.",
+            "• Là lực lượng nòng cốt củng cố khối đại đoàn kết toàn dân tộc trên cơ sở liên minh giai cấp Công nhân - Nông dân - Đội ngũ trí thức.",
+            "• Tích cực tham gia xây dựng, chỉnh đốn Đảng trong sạch, vững mạnh; kiên quyết đấu tranh phòng chống tham nhũng, lãng phí, 'tự diễn biến', 'tự chuyển hóa'; làm thất bại âm mưu 'diễn biến hòa bình' của các thế lực thù địch nhằm 'phi chính trị hóa' giai cấp công nhân.",
+            "<strong>3. Trên lĩnh vực văn hóa - tư tưởng:</strong>",
+            "• Xây dựng và bảo vệ nền tảng tư tưởng của Đảng là Chủ nghĩa Mác - Lênin và Tư tưởng Hồ Chí Minh.",
+            "• Tiên phong xây dựng văn hóa doanh nghiệp, nếp sống văn minh công nghiệp, đạo đức lao động trung thực, sáng tạo; đấu tranh đẩy lùi lối sống thực dụng, tệ nạn xã hội.",
+            "• Giữ gìn và phát huy bản sắc văn hóa dân tộc, kết hợp hài hòa truyền thống tốt đẹp với tinh hoa văn hóa tiến bộ của nhân loại."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Đặc trưng Quốc gia – Dân tộc & Quan điểm của Đảng về vấn đề dân tộc",
+      "question": "3. Phân tích các đặc trưng của quốc gia – dân tộc và các quan điểm của Đảng về vấn đề dân tộc",
+      "tags": [
+        "Quốc gia - Dân tộc",
+        "Đặc trưng dân tộc",
+        "Đường lối của Đảng",
+        "Bình đẳng dân tộc"
+      ],
+      "outline": [
+        "1. Khái niệm Quốc gia – Dân tộc (Dân tộc theo nghĩa rộng).",
+        "2. Phân tích 5 đặc trưng cơ bản của Quốc gia – Dân tộc.",
+        "3. Các quan điểm, nguyên tắc nhất quán của Đảng Cộng sản Việt Nam về vấn đề dân tộc.",
+        "4. Ý nghĩa thực tiễn đối với sự nghiệp xây dựng và bảo vệ Tổ quốc Việt Nam."
+      ],
+      "keyPoints": [
+        "Lãnh thổ chung ổn định, toàn vẹn",
+        "Phương thức sinh hoạt kinh tế chung, thị trường thống nhất",
+        "Ngôn ngữ chung của quốc gia",
+        "Văn hóa và tâm lý dân tộc chung",
+        "Nhà nước và pháp luật thống nhất",
+        "Chiến lược cơ bản, lâu dài và cấp bách",
+        "Bình đẳng, đoàn kết, tôn trọng, giúp nhau cùng phát triển",
+        "Đập tan âm mưu lợi dụng vấn đề dân tộc để chia rẽ"
+      ],
+      "contentSections": [
+        {
+          "heading": "I. Khái niệm và 5 đặc trưng cơ bản của Quốc gia – Dân tộc",
+          "body": [
+            "<strong>1. Khái niệm:</strong> Quốc gia – Dân tộc (dân tộc theo nghĩa rộng - Nation) là hình thức cộng đồng người ổn định, bền vững nhất trong lịch sử, hình thành trên cơ sở phát triển của phương thức sản xuất tư bản chủ nghĩa hoặc hình thành sớm do yêu cầu đấu tranh dựng nước và giữ nước (như Việt Nam). Đây là cộng đồng chính trị - xã hội gắn bó chặt chẽ với thiết chế nhà nước.",
+            "<strong>2. Phân tích 5 đặc trưng cơ bản của Quốc gia – Dân tộc:</strong>",
+            "• <strong>Đặc trưng 1: Có chung một vùng lãnh thổ ổn định, toàn vẹn:</strong>",
+            "  - Lãnh thổ là không gian sinh tồn và phát triển của dân tộc, bao gồm vùng đất, vùng trời, vùng biển, hải đảo và thềm lục địa.",
+            "  - Vùng lãnh thổ có ranh giới biên giới quốc gia rõ ràng, được quốc tế công nhận, là chủ quyền thiêng liêng bất khả xâm phạm. Vận mệnh dân tộc luôn gắn liền với việc bảo vệ toàn vẹn lãnh thổ.",
+            "• <strong>Đặc trưng 2: Có chung một phương thức sinh hoạt kinh tế thống nhất:</strong>",
+            "  - Đây là nền tảng vật chất và là mối liên kết bền chặt nhất gắn kết các bộ phận dân cư trên toàn lãnh thổ.",
+            "  - Thị trường dân tộc thống nhất xóa bỏ tình trạng cát cứ, phân tán, cô lập về kinh tế thời phong kiến, tạo thành một chỉnh thể kinh tế quốc gia thông suốt.",
+            "• <strong>Đặc trưng 3: Có chung một ngôn ngữ quốc gia thống nhất:</strong>",
+            "  - Ngôn ngữ chung là công cụ giao tiếp thống nhất trong toàn xã hội, phương tiện trao đổi tư tưởng, văn hóa và quản lý hành chính nhà nước.",
+            "  - Ở Việt Nam, tiếng Việt (tiếng Kinh) là ngôn ngữ quốc gia chính thức, đồng thời Nhà nước tôn trọng và bảo tồn chữ viết, tiếng nói của các dân tộc thiểu số.",
+            "• <strong>Đặc trưng 4: Có chung một nền văn hóa và tâm lý dân tộc:</strong>",
+            "  - Được kết tinh qua chiều dài lịch sử đấu tranh dựng nước, giữ nước và lao động sản xuất, tạo nên bản sắc văn hóa dân tộc độc đáo.",
+            "  - Thể hiện qua lòng yêu nước nồng nàn, ý chí độc lập tự cường, tinh thần đoàn kết cộng đồng, lối sống và tâm lý chung gắn bó máu thịt giữa các thành viên trong quốc gia.",
+            "• <strong>Đặc trưng 5: Có chung một Nhà nước và hệ thống pháp luật thống nhất:</strong>",
+            "  - Nhà nước là thiết chế chính trị quyền lực tối cao đại diện cho toàn thể quốc gia - dân tộc.",
+            "  - Quản lý toàn diện mọi mặt đời sống xã hội bằng pháp luật thống nhất, bảo vệ quyền lợi hợp pháp của nhân dân và đại diện cho quốc gia trong quan hệ quốc tế."
+          ]
+        },
+        {
+          "heading": "II. Quan điểm và chủ trương nhất quán của Đảng Cộng sản Việt Nam về vấn đề dân tộc",
+          "body": [
+            "Vấn đề dân tộc luôn được Đảng Cộng sản Việt Nam xác định là vấn đề có tầm quan trọng đặc biệt đối với sự nghiệp cách mạng. Quan điểm của Đảng thể hiện qua các nội dung cốt lõi sau:",
+            "<strong>1. Vị trí chiến lược:</strong>",
+            "• Vấn đề dân tộc và công tác dân tộc có vị trí chiến lược cơ bản, lâu dài, đồng thời là nhiệm vụ cấp bách của cách mạng Việt Nam qua mọi thời kỳ.",
+            "• Đại đoàn kết các dân tộc là cội nguồn sức mạnh, là động lực to lớn bảo đảm thắng lợi của sự nghiệp xây dựng và bảo vệ Tổ quốc XHCN.",
+            "<strong>2. Nguyên tắc chỉ đạo cốt lõi:</strong>",
+            "• Các dân tộc trong đại gia đình Việt Nam <strong>'Bình đẳng, đoàn kết, tôn trọng và giúp nhau cùng phát triển'</strong>.",
+            "• Kiên quyết đấu tranh chống tư tưởng phân biệt đối xử, kỳ thị dân tộc, tư tưởng dân tộc lớn cũng như tư tưởng dân tộc hẹp hòi, tự ti dân tộc.",
+            "<strong>3. Phát triển toàn diện kinh tế - xã hội vùng đồng bào dân tộc thiểu số:</strong>",
+            "• Đảng và Nhà nước ưu tiên nguồn lực đầu tư, triển khai hiệu quả <em>Chương trình mục tiêu quốc gia phát triển kinh tế - xã hội vùng đồng bào dân tộc thiểu số và miền núi</em>.",
+            "• Tập trung phát triển hệ thống cơ sở hạ tầng giao thông, thủy lợi, mạng lưới điện, viễn thông, trường học, trạm y tế; đẩy mạnh xóa đói giảm nghèo bền vững, từng bước thu hẹp khoảng cách phát triển giữa vùng sâu, vùng xa với các đô thị.",
+            "<strong>4. Nâng cao dân trí, chăm lo văn hóa, y tế và xây dựng đội ngũ cán bộ:</strong>",
+            "• Thực hiện chính sách ưu tiên trong giáo dục - đào tạo: phát triển mạng lưới trường phổ thông dân tộc nội trú, thực hiện chính sách cử tuyển, miễn giảm học phí cho con em đồng bào thiểu số.",
+            "• Giữ gìn, bảo tồn và phát huy các giá trị văn hóa vật thể và phi vật thể tốt đẹp của từng tộc người, đồng thời kiên quyết vận động xóa bỏ các phong tục tập quán lạc hậu, mê tín dị đoan.",
+            "• Chú trọng quy hoạch, đào tạo, bồi dưỡng và bố trí đội ngũ cán bộ, công chức, viên chức là người dân tộc thiểu số tại chỗ.",
+            "<strong>5. Giữ vững quốc phòng - an ninh, đập tan mọi âm mưu chia rẽ:</strong>",
+            "• Giữ vững ổn định chính trị, củng cố 'thế trận lòng dân' vững chắc ở các địa bàn chiến lược, xung yếu biên giới, hải đảo, Tây Bắc, Tây Nguyên, Tây Nam Bộ.",
+            "• Nâng cao cảnh giác, kiên quyết đấu tranh làm thất bại mọi âm mưu, thủ đoạn của các thế lực thù địch lợi dụng 'vấn đề dân tộc', 'nhân quyền', 'tôn giáo' để kích động ly khai, bạo loạn (như kích động thành lập 'Nhà nước Đề Ga', 'Nhà nước Mông'), phá hoại khối đại đoàn kết toàn dân tộc."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Quan điểm Mác-Lênin về Dân tộc, Đặc điểm Dân tộc VN & Trách nhiệm sinh viên",
+      "question": "4. Trình bày quan điểm của chủ nghĩa Mác-Lênin về vấn đề dân tộc (khái niệm, xu hướng). Liên hệ thực tiễn về đặc điểm của dân tộc Việt Nam. Là một sinh viên, anh (chị) nên làm gì để góp phần xây dựng khối đại đoàn kết dân tộc?",
+      "tags": [
+        "Quan điểm Mác - Lênin",
+        "Hai xu hướng dân tộc",
+        "Đặc điểm dân tộc Việt Nam",
+        "Đại đoàn kết dân tộc"
+      ],
+      "outline": [
+        "1. Quan điểm của Chủ nghĩa Mác - Lênin về vấn đề dân tộc (Hai nghĩa của khái niệm, Hai xu hướng phát triển khách quan, Cương lĩnh dân tộc của Lênin).",
+        "2. Phân tích 6 đặc điểm cơ bản của dân tộc Việt Nam trong thực tiễn.",
+        "3. Trách nhiệm, thái độ và hành động thiết thực của sinh viên nhằm xây dựng và củng cố khối đại đoàn kết dân tộc."
+      ],
+      "keyPoints": [
+        "Khái niệm: Quốc gia dân tộc (rộng) & Tộc người (hẹp)",
+        "Xu hướng 1: Tách ra để thành lập quốc gia độc lập",
+        "Xu hướng 2: Các dân tộc liên hiệp, xích lại gần nhau",
+        "Cương lĩnh Lênin: Bình đẳng - Tự quyết - Liên hiệp công nhân",
+        "Việt Nam: 54 dân tộc, cư trú xen kẽ, địa bàn chiến lược xung yếu",
+        "Chênh lệch phát triển KT-XH, văn hóa thống nhất trong đa dạng",
+        "Truyền thống yêu nước đoàn kết keo sơn",
+        "Sinh viên: Tôn trọng đa dạng văn hóa, tình nguyện vùng cao, đấu tranh phản bác luận điệu chia rẽ"
+      ],
+      "contentSections": [
+        {
+          "heading": "I. Quan điểm của Chủ nghĩa Mác - Lênin về vấn đề dân tộc",
+          "body": [
+            "<strong>1. Hai cách tiếp cận khái niệm dân tộc:</strong>",
+            "• <em>Theo nghĩa rộng (Nation - Quốc gia dân tộc):</em> Là cộng đồng người ổn định làm thành nhân dân một nước, có lãnh thổ quốc gia, nền kinh tế thống nhất, ngôn ngữ chung, nền văn hóa và tâm lý dân tộc, gắn với một nhà nước và pháp luật thống nhất (ví dụ: Dân tộc Việt Nam, Dân tộc Ấn Độ...).",
+            "• <em>Theo nghĩa hẹp (Ethnie - Tộc người):</em> Là cộng đồng người có chung mối liên hệ về nguồn gốc xuất thân, ngôn ngữ mẹ đẻ, phong tục tập quán văn hóa và ý thức tự giác tộc người (ví dụ: Dân tộc Kinh, Tày, Thái, Mường, H'Mông, Khmer...).",
+            "<strong>2. Hai xu hướng khách quan của sự phát triển quan hệ dân tộc (Do V.I. Lênin phát hiện):</strong>",
+            "• <em>Xu hướng thứ nhất: Xu hướng tách ra để xác lập các cộng đồng dân tộc độc lập:</em>",
+            "  - Xuất hiện trong giai đoạn đầu của chủ nghĩa tư bản khi phương thức sản xuất TBCN thức tỉnh ý thức dân tộc.",
+            "  - Các bộ tộc, tộc người đấu tranh chống áp bức, bất bình đẳng dân tộc, đòi quyền tự quyết, tách ra để thành lập các nhà nước dân tộc độc lập. Trong thời đại ngày nay, xu hướng này thể hiện qua phong trào giải phóng dân tộc và bảo vệ chủ quyền quốc gia.",
+            "• <em>Xu hướng thứ hai: Xu hướng các dân tộc liên hiệp lại, xích lại gần nhau:</em>",
+            "  - Xuất hiện khi lực lượng sản xuất, khoa học - kỹ thuật phát triển mạnh mẽ, mở rộng phân công lao động xã hội vượt ra khỏi ranh giới từng quốc gia.",
+            "  - Thúc đẩy các dân tộc xóa bỏ hàng rào ngăn cách, tăng cường giao lưu, hội nhập kinh tế, văn hóa và liên kết quốc tế (thể hiện rõ qua xu thế toàn cầu hóa và hội nhập kinh tế quốc tế hiện nay).",
+            "<strong>3. Cương lĩnh dân tộc của V.I. Lênin (Kim chỉ nam giải quyết vấn đề dân tộc):</strong>",
+            "• <em>Các dân tộc hoàn toàn bình đẳng:</em> Mọi dân tộc lớn hay nhỏ đều có quyền lợi và nghĩa vụ ngang nhau, không có dân tộc nào có đặc quyền, đặc lợi.",
+            "• <em>Các dân tộc được quyền tự quyết:</em> Quyền tự quyết định vận mệnh của dân tộc mình (quyền tự do phân lập thành quốc gia độc lập hoặc tự nguyện liên hiệp).",
+            "• <em>Liên hiệp công nhân tất cả các dân tộc:</em> Thể hiện bản chất quốc tế của giai cấp công nhân, là nền tảng bảo đảm thực hiện thắng lợi quyền bình đẳng và tự quyết dân tộc."
+          ]
+        },
+        {
+          "heading": "II. Đặc điểm cơ bản của dân tộc Việt Nam (Thực tiễn)",
+          "body": [
+            "Thực tiễn lịch sử và địa chính trị hình thành nên 6 đặc điểm nổi bật của dân tộc Việt Nam:",
+            "• <strong>1. Có sự chênh lệch lớn về số lượng dân cư giữa các tộc người:</strong> Việt Nam có 54 dân tộc anh em; dân tộc Kinh chiếm khoảng 85% dân số, trong khi 53 dân tộc thiểu số chỉ chiếm khoảng 15% tổng dân số cả nước.",
+            "• <strong>2. Các dân tộc cư trú xen kẽ nhau:</strong> Không có dân tộc nào có vùng lãnh thổ tộc người hoàn toàn biệt lập. Đặc điểm này tạo điều kiện thuận lợi to lớn cho sự hòa nhập, giao lưu văn hóa, học hỏi kinh nghiệm sản xuất, nhưng cũng dễ nảy sinh va chạm nếu không giải quyết tốt các quan hệ xã hội.",
+            "• <strong>3. Địa bàn cư trú của đồng bào thiểu số có vị trí chiến lược xung yếu:</strong> Các dân tộc thiểu số cư trú chủ yếu ở vùng miền núi, biên giới, hải đảo - chiếm tới 3/4 diện tích tự nhiên của cả nước. Đây là những 'phên dậu' hiểm yếu của Tổ quốc về quốc phòng, an ninh và là đầu nguồn tài nguyên, rừng phòng hộ sinh thái quốc gia.",
+            "• <strong>4. Trình độ phát triển kinh tế - xã hội giữa các dân tộc không đồng đều:</strong> Do điều kiện tự nhiên khắc nghiệt, giao thông cách trở và lịch sử để lại, đời sống của một bộ phận đồng bào thiểu số vùng sâu, vùng xa vẫn còn nhiều khó khăn, tỷ lệ hộ nghèo cao hơn mặt bằng chung.",
+            "• <strong>5. Bản sắc văn hóa phong phú, đa dạng 'thống nhất trong đa dạng':</strong> Mỗi dân tộc đều sở hữu tiếng nói, trang phục, kiến trúc, lễ hội và kho tàng di sản độc đáo, hòa quyện tạo nên vườn hoa văn hóa Việt Nam rực rỡ, thống nhất về lòng yêu nước và ý thức cộng đồng.",
+            "• <strong>6. Có truyền thống đoàn kết keo sơn, gắn bó máu thịt lâu đời:</strong> Trải qua hàng nghìn năm dựng nước và giữ nước chung, các dân tộc anh em luôn kề vai sát cánh, đồng cam cộng khổ chống giặc ngoại xâm và khắc phục thiên tai bão lũ, đúc kết nên truyền thống 'Đồng bào', 'Bầu ơi thương lấy bí cùng'."
+          ]
+        },
+        {
+          "heading": "III. Trách nhiệm của sinh viên góp phần xây dựng khối đại đoàn kết dân tộc",
+          "body": [
+            "Sinh viên là lực lượng trí thức trẻ, đóng vai trò cầu nối quan trọng trong việc thắt chặt khối đại đoàn kết toàn dân tộc:",
+            "<strong>1. Về nhận thức và lập trường tư tưởng:</strong>",
+            "• Nhận thức sâu sắc rằng đại đoàn kết toàn dân tộc là truyền thống quý báu, nguồn sức mạnh vô địch và là nhân tố quyết định mọi thắng lợi của cách mạng Việt Nam.",
+            "• Nắm vững chủ trương, đường lối chính sách dân tộc của Đảng và pháp luật của Nhà nước; thấu hiểu tầm quan trọng của việc giữ gìn ổn định chính trị vùng đồng bào dân tộc thiểu số.",
+            "<strong>2. Về thái độ ứng xử và tinh thần tôn trọng văn hóa:</strong>",
+            "• Luôn có thái độ tôn trọng, bình đẳng, hòa đồng, thân thiện với bạn bè và đồng bào các dân tộc thiểu số trong học tập, sinh hoạt tại trường lớp và ký túc xá.",
+            "• Tuyệt đối không có hành vi, thái độ định kiến, miệt thị vùng miền, kỳ thị sắc tộc hay tự cao tự đại; chủ động tìm hiểu, tôn trọng phong tục, tập quán, tín ngưỡng lành mạnh của các dân tộc anh em.",
+            "• Tích cực chia sẻ, giúp đỡ chân thành các bạn sinh viên người dân tộc thiểu số vượt qua khó khăn về học tập, kinh tế để cùng tiến bộ.",
+            "<strong>3. Về hành động thực tiễn xung kích:</strong>",
+            "• Tích cực hưởng ứng và tham gia các chiến dịch tình nguyện hướng về vùng cao, vùng biên giới: 'Mùa hè xanh', 'Xuân tình nguyện', 'Áo ấm mùa đông'.",
+            "• Vận dụng kiến thức đã học để hỗ trợ đồng bào: tổ chức dạy học cho trẻ em nghèo, phổ cập kỹ năng số, hướng dẫn kỹ thuật canh tác mới, khám chữa bệnh và phát thuốc miễn phí.",
+            "• Nâng cao cảnh giác trên không gian mạng: không like, không share các thông tin kích động chia rẽ dân tộc; chủ động lên tiếng vạch trần, đấu tranh phản bác các luận điệu xuyên tạc, thù địch của các tổ chức phản động chống phá khối đại đoàn kết toàn dân tộc."
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Gia đình: Khái niệm, Vị trí, Chức năng & Biến đổi Chức năng Tái sản xuất con người",
+      "question": "5. Khái niệm, vị trí, chức năng của gia đình? Liên hệ thực tiễn về biến đổi trong chức năng tái sản xuất con người của gia đình Việt Nam hiện nay.",
+      "tags": [
+        "Gia đình",
+        "Chức năng gia đình",
+        "Tái sản xuất con người",
+        "Biến đổi gia đình Việt Nam"
+      ],
+      "outline": [
+        "1. Khái niệm gia đình và các mối quan hệ nền tảng (Hôn nhân, Huyết thống, Nuôi dưỡng).",
+        "2. Vị trí của gia đình trong kết cấu xã hội (Tế bào xã hội, Tổ ấm hạnh phúc, Cầu nối cá nhân - xã hội).",
+        "3. Các chức năng cơ bản của gia đình (Tái sản xuất con người, Nuôi dạy, Kinh tế, Thỏa mãn tâm sinh lý, Văn hóa).",
+        "4. Phân tích thực tiễn những biến đổi trong chức năng tái sản xuất con người của gia đình Việt Nam hiện nay (Quy mô, Tuổi kết hôn, Mục đích sinh con, Công nghệ hỗ trợ sinh sản).",
+        "5. Những tác động tích cực, thách thức (Già hóa dân số, Mất cân bằng giới tính) và giải pháp chính sách."
+      ],
+      "keyPoints": [
+        "Tế bào của xã hội, tổ ấm yêu thương, cầu nối cá nhân - xã hội",
+        "Chức năng tái sản xuất ra con người là chức năng đặc thù",
+        "Chuyển từ gia đình truyền thống đông con sang gia đình hạt nhân (1-2 con)",
+        "Mức sinh giảm sâu ở đô thị (TP.HCM ~1.39 con/phụ nữ)",
+        "Chuyển từ 'trọng nam khinh nữ, cần sức lao động' sang 'chất lượng con cái'",
+        "Thách thức: Già hóa dân số nhanh, nguy cơ thiếu hụt lao động",
+        "Mất cân bằng giới tính khi sinh (~112 bé trai/100 bé gái)",
+        "Chính sách khuyến sinh thay thế, an sinh xã hội"
+      ],
+      "contentSections": [
+        {
+          "heading": "I. Khái niệm, Vị trí và Các chức năng cơ bản của gia đình",
+          "body": [
+            "<strong>1. Khái niệm:</strong> Gia đình là một hình thức cộng đồng xã hội đặc biệt, được hình thành, duy trì và củng cố chủ yếu dựa trên cơ sở quan hệ hôn nhân, quan hệ huyết thống và quan hệ nuôi dưỡng; cùng với những quy định về quyền, nghĩa vụ pháp lý và trách nhiệm đạo đức, tình cảm thiêng liêng giữa các thành viên.",
+            "<strong>2. Vị trí của gia đình trong xã hội:</strong>",
+            "• <em>Gia đình là tế bào của xã hội:</em> Chủ tịch Hồ Chí Minh khẳng định: <em>'Hạt nhân của xã hội là gia đình... Nhiều gia đình cộng lại mới thành xã hội, xã hội tốt thì gia đình càng tốt, gia đình tốt thì xã hội mới tốt'</em>. Xã hội chỉ có thể tồn tại và phát triển lành mạnh khi các tế bào gia đình ổn định, vững chắc.",
+            "• <em>Gia đình là tổ ấm thiêng liêng mang lại hạnh phúc cho mỗi cá nhân:</em> Là nơi mỗi con người sinh ra, lớn lên, được chở che, yêu thương vô điều kiện; là chỗ dựa tinh thần và vật chất vững chắc nhất giúp con người phục hồi thể lực và trí lực sau những áp lực của cuộc sống.",
+            "• <em>Gia đình là cầu nối giữa cá nhân và xã hội:</em> Mọi quy chuẩn, đạo đức, pháp luật của xã hội phần lớn được truyền tải tới cá nhân thông qua sự uốn nắn của gia đình; ngược lại, mỗi đóng góp của cá nhân cho xã hội đều bắt nguồn từ nền tảng giáo dục gia đình.",
+            "<strong>3. Các chức năng cơ bản của gia đình:</strong>",
+            "• <strong>Chức năng tái sản xuất ra con người:</strong> Chức năng đặc thù chỉ riêng gia đình có nhằm duy trì nòi giống, tái tạo sức lao động cho xã hội.",
+            "• <strong>Chức năng nuôi dưỡng, giáo dục con cái:</strong> Hình thành nhân cách ban đầu, truyền thụ các giá trị đạo đức, lối sống văn hóa tốt đẹp.",
+            "• <strong>Chức năng kinh tế và tổ chức tiêu dùng:</strong> Tạo lập thu nhập, quản lý chi tiêu, duy trì sự ổn định vật chất cho các thành viên.",
+            "• <strong>Chức năng thỏa mãn nhu cầu tâm sinh lý, duy trì tình cảm:</strong> Đảm bảo sự cân bằng tâm lý, hòa hợp tình cảm giữa vợ chồng, cha mẹ và con cái.",
+            "• <strong>Chức năng lưu giữ và trao truyền các giá trị văn hóa truyền thống:</strong> Gìn giữ gia phong, gia đạo, truyền thống hiếu học, kính trên nhường dưới."
+          ]
+        },
+        {
+          "heading": "II. Liên hệ thực tiễn về biến đổi trong chức năng tái sản xuất con người của gia đình Việt Nam hiện nay",
+          "body": [
+            "Dưới tác động của công nghiệp hóa, hiện đại hóa, đô thị hóa, kinh tế thị trường và hội nhập quốc tế, chức năng tái sản xuất con người của gia đình Việt Nam đang diễn ra những biến đổi sâu sắc:",
+            "<strong>1. Quy mô gia đình thu nhỏ, mức sinh giảm rõ rệt:</strong>",
+            "• Gia đình Việt Nam chuyển đổi mạnh mẽ từ mô hình truyền thống <em>'tam đại, tứ đại đồng đường'</em> đông con sang mô hình <strong>gia đình hạt nhân</strong> (chỉ gồm cha mẹ và con cái).",
+            "• Nếu như trước đây các gia đình sinh nhiều con (bình quân 4-6 con, quan niệm 'đông con nhiều của', 'trời sinh voi trời sinh cỏ'), thì hiện nay mô hình chuẩn phổ biến chỉ từ <strong>1 đến 2 con</strong>.",
+            "• Đáng chú ý, tại các đô thị phát triển như TP. Hồ Chí Minh, Hà Nội, vùng Đông Nam Bộ và Đồng bằng sông Cửu Long, tỷ suất sinh đang giảm rất sâu xuống dưới mức sinh thay thế (TP.HCM chỉ đạt khoảng <strong>1,39 con/phụ nữ</strong>).",
+            "<strong>2. Độ tuổi kết hôn và sinh con ngày càng muộn; xuất hiện các xu hướng sống mới:</strong>",
+            "• Do áp lực công việc, học tập nâng cao, chi phí nhà ở và sinh hoạt đắt đỏ, giới trẻ có xu hướng kết hôn muộn hơn và trì hoãn thời điểm sinh con đầu lòng.",
+            "• Xuất hiện ngày càng nhiều xu hướng sống hiện đại như: người độc thân tự nguyện, mẹ đơn thân (single mom), hoặc các cặp vợ chồng kết hôn nhưng không muốn sinh con (mô hình DINK - Double Income, No Kids) để tập trung phát triển sự nghiệp cá nhân và tận hưởng cuộc sống.",
+            "<strong>3. Mục đích sinh con và quan niệm về con cái thay đổi căn bản:</strong>",
+            "• <em>Trước kia:</em> Việc sinh con mang nặng mục đích kinh tế (cần thêm sức lao động làm nông nghiệp), nối dõi tông đường, sinh con trai để 'chống gậy' phụng dưỡng cha mẹ lúc tuổi già (chịu ảnh hưởng nặng nề của tư tưởng phong kiến trọng nam khinh nữ).",
+            "• <em>Hiện nay:</em> Sinh con xuất phát từ tình yêu thương, sự gắn kết và mong muốn mang lại hạnh phúc cho con. Quan niệm 'con nào cũng là con, miễn là hiếu thảo, giỏi giang' ngày càng phổ cập.",
+            "• Sự chuyển dịch dứt khoát từ coi trọng <strong>số lượng</strong> sang coi trọng <strong>chất lượng con cái</strong>: Cha mẹ hiện đại đầu tư toàn diện cho con về dinh dưỡng, y tế, giáo dục chất lượng cao, phát triển năng khiếu, ngoại ngữ và kỹ năng mềm.",
+            "<strong>4. Sự can thiệp mạnh mẽ của tiến bộ khoa học kỹ thuật y tế:</strong>",
+            "• Các kỹ thuật y học hỗ trợ sinh sản hiện đại (như thụ tinh trong ống nghiệm IVF, bơm tinh trùng IUI, lưu trữ trứng/tinh trùng) đã giúp hàng vạn cặp vợ chồng vô sinh, hiếm muộn thực hiện được thiên chức làm cha mẹ.",
+            "• Các công nghệ sàng lọc trước sinh, sàng lọc sơ sinh, xét nghiệm di truyền giúp phát hiện sớm các dị tật bẩm sinh, góp phần nâng cao thể chất và chất lượng giống nòi."
+          ]
+        },
+        {
+          "heading": "III. Những thách thức đặt ra và giải pháp chính sách của Việt Nam",
+          "body": [
+            "Bên cạnh những mặt tích cực, sự biến đổi trong chức năng này đang đặt ra những thách thức rất lớn đối với sự phát triển bền vững của đất nước:",
+            "<strong>1. Nguy cơ già hóa dân số nhanh chóng:</strong>",
+            "• Tỷ lệ sinh giảm sâu dẫn đến tốc độ già hóa dân số của Việt Nam thuộc hàng nhanh nhất thế giới. Việt Nam có nguy cơ 'chưa giàu đã già', đối mặt với tình trạng thiếu hụt lực lượng lao động trong 10-15 năm tới, gia tăng gánh nặng lên quỹ bảo hiểm xã hội, hệ thống y tế và dịch vụ chăm sóc người cao tuổi.",
+            "<strong>2. Tình trạng mất cân bằng giới tính khi sinh còn cao:</strong>",
+            "• Mặc dù nhận thức đã tiến bộ, song việc lạm dụng công nghệ siêu âm chẩn đoán giới tính thai nhi khiến tỷ số giới tính khi sinh ở một số địa phương vẫn ở mức cao (khoảng <strong>112 bé trai / 100 bé gái</strong>), tiềm ẩn nguy cơ bất ổn xã hội và dư thừa nam giới trong độ tuổi kết hôn trong tương lai gần.",
+            "<strong>3. Định hướng chính sách và giải pháp của Đảng, Nhà nước:</strong>",
+            "• Chuyển trọng tâm chính sách dân số từ 'kế hoạch hóa gia đình' sang <strong>'Dân số và Phát triển'</strong> theo tinh thần Nghị quyết số 21-NQ/TW của Ban Chấp hành Trung ương Đảng.",
+            "• Ban hành các chính sách khuyến sinh ở các vùng có mức sinh thấp: khuyến khích phụ nữ kết hôn trước 30 tuổi và sinh đủ 2 con trước 35 tuổi; hỗ trợ tài chính, giảm thuế, cải thiện chế độ thai sản cho cả cha và mẹ.",
+            "• Phát triển hệ thống trường mầm non công lập, mở rộng dịch vụ chăm sóc trẻ em giá rẻ; kiểm soát chặt chẽ việc lựa chọn giới tính thai nhi, kiên quyết xử lý nghiêm các cơ sở y tế vi phạm.",
+            "• Đẩy mạnh tuyên truyền bình đẳng giới, nâng cao vị thế của phụ nữ và trẻ em gái trong gia đình và xã hội."
+          ]
+        }
+      ]
+    }
   ]
 };

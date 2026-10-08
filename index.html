@@ -59,6 +59,12 @@
         <span class="tab-badge" id="sa-count-badge">30 câu</span>
       </button>
 
+      <button class="tab-btn" data-tab="tab-essay">
+        <span class="tab-icon">📖</span>
+        <span class="tab-title">Phần III: Tự Luận</span>
+        <span class="tab-badge" id="essay-count-badge">5 câu lớn</span>
+      </button>
+
       <button class="tab-btn" data-tab="tab-stats">
         <span class="tab-icon">📊</span>
         <span class="tab-title">Thống Kê & Ghi Nhớ</span>
@@ -344,7 +350,69 @@
     </section>
 
     <!-- ============================================== -->
-    <!-- TAB 3: THỐNG KÊ & CÂU ĐÃ LƯU (STATS & BOOKMARKS) -->
+    <!-- TAB 3: PHẦN III: TỰ LUẬN (CHUYÊN ĐỀ & GIẢI CHI TIẾT) -->
+    <!-- ============================================== -->
+    <section id="tab-essay" class="tab-pane">
+      <div class="essay-header-intro">
+        <div class="intro-left">
+          <h2>Chuyên Đề Tự Luận Chuyên Sâu</h2>
+          <p class="subtitle">Đề cương phân tích chi tiết 5 câu hỏi tự luận lớn chuẩn giáo trình Bộ GD&ĐT, bao gồm dàn ý tư duy, luận điểm cốt lõi, dẫn chứng thực tiễn Việt Nam và liên hệ trách nhiệm sinh viên.</p>
+        </div>
+        <div class="intro-stats-badge">
+          <span class="badge-number">5</span>
+          <span class="badge-text">Câu Tự Luận Trọng Tâm</span>
+        </div>
+      </div>
+
+      <div class="essay-toolbar">
+        <div class="search-input-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-essay-input" placeholder="Tìm câu hỏi, từ khóa tự luận (quá độ, công nhân, dân tộc, gia đình, sinh viên...)" autocomplete="off">
+          <button id="btn-clear-essay-search" class="btn-clear hidden">✕</button>
+        </div>
+
+        <div class="essay-toolbar-actions">
+          <div class="filter-dropdown-box">
+            <select id="filter-essay-topic" class="custom-select">
+              <option value="all">Tất cả chuyên đề (5 câu)</option>
+              <option value="Thời kỳ quá độ">1. Thời kỳ quá độ & Đổi mới</option>
+              <option value="Giai cấp công nhân">2. Sứ mệnh giai cấp công nhân</option>
+              <option value="Quốc gia - Dân tộc">3. Quốc gia - Dân tộc & Đường lối Đảng</option>
+              <option value="Đại đoàn kết">4. Mác-Lênin & Đại đoàn kết dân tộc</option>
+              <option value="Gia đình">5. Gia đình & Tái sản xuất con người</option>
+            </select>
+          </div>
+
+          <button id="btn-essay-expand-all" class="btn-secondary" title="Mở rộng toàn bộ bài giải">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 11 12 6 17 11"/><polyline points="7 18 12 13 17 18"/></svg>
+            Mở rộng hết
+          </button>
+
+          <button id="btn-essay-collapse-all" class="btn-secondary" title="Thu gọn toàn bộ bài giải">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="7 6 12 11 17 6"/><polyline points="7 13 12 18 17 13"/></svg>
+            Thu gọn
+          </button>
+
+          <button id="btn-essay-print" class="btn-primary" title="In toàn bộ đề cương hoặc lưu PDF">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            In / Xuất PDF
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Topics Jump Navigation -->
+      <div class="essay-quick-nav" id="essay-quick-nav">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- Essay Cards List -->
+      <div class="essay-list-container" id="essay-list-container">
+        <!-- Rendered via JS -->
+      </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- TAB 4: THỐNG KÊ & CÂU ĐÃ LƯU (STATS & BOOKMARKS) -->
     <!-- ============================================== -->
     <section id="tab-stats" class="tab-pane">
       <div class="stats-dashboard">
@@ -444,8 +512,11 @@
     </div>
   </div>
 
-  <!-- Confetti Canvas for High Score Celebration -->
-  <canvas id="confetti-canvas"></canvas>
+  <!-- Toast Notification -->
+  <div class="toast-notification hidden" id="toast-notification">
+    <span class="toast-icon">📋</span>
+    <span class="toast-message" id="toast-message">Đã sao chép vào bộ nhớ tạm!</span>
+  </div>
 
   <!-- Load Data and Main Script -->
   <script src="quiz-data.js"></script>
